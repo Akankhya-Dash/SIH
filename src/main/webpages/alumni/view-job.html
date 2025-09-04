@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Opportunities</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            background: #f0f4f8;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(90deg, #4481eb, #6aa0f8);
+            color: white;
+            text-align: center;
+            padding: 15px 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .container {
+            flex: 1;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            color: #4481eb;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            margin: 4px 0;
+            color: #555;
+        }
+
+        .card a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: linear-gradient(90deg, #4481eb, #6aa0f8);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .card a:hover {
+            background: linear-gradient(90deg, #1c6ed4, #4481eb);
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: linear-gradient(90deg, #4481eb, #6aa0f8);
+            color: white;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Opportunities</h1>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h3>Frontend Developer Internship</h3>
+            <p>Company: TechCorp</p>
+            <p>Location: Remote</p>
+            <p>Description: Work on web applications using React and JavaScript.</p>
+            <a href="#">Apply</a>
+        </div>
+
+        <div class="card">
+            <h3>Data Science Job</h3>
+            <p>Company: DataWorks</p>
+            <p>Location: New York</p>
+            <p>Description: Analyze large datasets and build predictive models.</p>
+            <a href="#">Apply</a>
+        </div>
+    </div>
+
+    <footer>&copy; 2025 GradConnect Platform</footer>
+</body>
+</html>
+

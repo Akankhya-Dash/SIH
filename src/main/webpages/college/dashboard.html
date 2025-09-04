@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>College Management Dashboard</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        background: #f0f4f8;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    /* Header */
+    header {
+        background: linear-gradient(90deg, #4481eb, #6aa0f8);
+        color: white;
+        text-align: center;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 2rem;
+    }
+
+    header p {
+        margin: 8px 0 0 0;
+        font-size: 1rem;
+    }
+
+    .container {
+        flex: 1;
+        max-width: 1000px;
+        margin: 30px auto;
+        padding: 0 15px;
+    }
+
+    /* Stats Cards */
+    .stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+        margin-bottom: 30px;
+        justify-content: center;
+    }
+
+    .stat-card {
+        flex: 1 1 250px;
+        background-color: white;
+        border-radius: 14px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        padding: 25px 20px;
+        text-align: center;
+    }
+
+    .stat-card h2 {
+        color: #4481eb;
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+
+    .stat-card p {
+        font-size: 1.1rem;
+        color: #555;
+    }
+
+    /* Action Cards */
+    .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+        justify-content: center;
+    }
+
+    .action-card {
+        flex: 1 1 250px;
+        background-color: white;
+        border-radius: 14px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        padding: 30px 20px;
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .action-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    }
+
+    .action-card h3 {
+        color: #4481eb;
+        margin-bottom: 12px;
+        font-size: 1.3rem;
+    }
+
+    .action-card p {
+        margin-bottom: 18px;
+        color: #555;
+    }
+
+    .action-card a {
+        display: inline-block;
+        padding: 12px 25px;
+        background: linear-gradient(90deg, #4481eb, #6aa0f8);
+        color: white;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: 0.3s;
+    }
+
+    .action-card a:hover {
+        background: linear-gradient(90deg, #1c6ed4, #4481eb);
+    }
+
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 25px;
+        background: linear-gradient(90deg, #4481eb, #6aa0f8);
+        color: white;
+        margin-top: 30px;
+    }
+
+    @media(max-width: 600px) {
+        .action-card, .stat-card {
+            flex: 1 1 100%;
+        }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>College Management Dashboard</h1>
+    <p>Monitor alumni mentorship and college-related activities</p>
+</header>
+
+<div class="container">
+    <!-- College Stats -->
+    <div class="stats">
+        <div class="stat-card">
+            <h2>200+</h2>
+            <p>Registered Alumni</p>
+        </div>
+        <div class="stat-card">
+            <h2>120</h2>
+            <p>Alumni Providing Mentorship</p>
+        </div>
+        <div class="stat-card">
+            <h2>50</h2>
+            <p>Active Student Requests</p>
+        </div>
+        <div class="stat-card">
+            <h2>30</h2>
+            <p>Events Organized</p>
+        </div>
+    </div>
+
+    <!-- Action Cards -->
+    <div class="actions">
+        <div class="action-card">
+            <h3>Manage Alumni</h3>
+            <p>View and manage registered alumni and their mentorship status.</p>
+            <a href="manage-alumni.html">Go</a>
+        </div>
+
+        <div class="action-card">
+            <h3>Post Announcements</h3>
+            <p>Share college-wide announcements, news, or updates.</p>
+            <a href="post-announcements.html">Post</a>
+        </div>
+
+        <div class="action-card">
+            <h3>View Opportunities</h3>
+            <p>Monitor job postings, internship opportunities, and mentorship requests.</p>
+            <a href="view-opportunities.html">View</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2025 GradConnect Platform
+</footer>
+
+</body>
+</html>

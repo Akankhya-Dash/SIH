@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Events Page</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        background: #f0f4f8;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    /* Header */
+    header {
+        background: linear-gradient(90deg, #4481eb, #6aa0f8);
+        color: white;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 2rem;
+    }
+
+    header p {
+        margin: 8px 0 0 0;
+        font-size: 1rem;
+    }
+
+    /* Container */
+    .container {
+        flex: 1;
+        max-width: 1000px;
+        margin: 30px auto;
+        padding: 0 15px;
+    }
+
+    /* Event Grid */
+    .event-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+
+    /* Event Card */
+    .event-card {
+        background-color: white;
+        border-radius: 14px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        padding: 25px 20px;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .event-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    }
+
+    .event-card h2 {
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+        color: #4481eb;
+    }
+
+    .event-card p {
+        color: #555;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin: 5px 0;
+    }
+
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 25px;
+        background: linear-gradient(90deg, #4481eb, #6aa0f8);
+        color: white;
+        margin-top: 30px;
+    }
+
+    @media(max-width: 600px) {
+        header h1 {
+            font-size: 1.5rem;
+        }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Upcoming Events</h1>
+    <p>Alumni talks, hackathons, internships, and job postings</p>
+</header>
+
+<div class="container">
+    <div class="event-grid">
+        <div class="event-card">
+            <h2>Alumni Talk: Tech Careers</h2>
+            <p><strong>Date:</strong> 10th Sept 2025</p>
+            <p>Join our alumni as they share insights about their career paths in technology and entrepreneurship.</p>
+        </div>
+        <div class="event-card">
+            <h2>Hackathon 2025</h2>
+            <p><strong>Date:</strong> 15th Sept 2025</p>
+            <p>Compete in a 48-hour coding marathon with exciting prizes and mentorship sessions.</p>
+        </div>
+        <div class="event-card">
+            <h2>Internship Opportunities</h2>
+            <p><strong>Date:</strong> Ongoing</p>
+            <p>Discover and apply for summer internships in top tech companies through our alumni network.</p>
+        </div>
+        <div class="event-card">
+            <h2>Job Postings</h2>
+            <p><strong>Date:</strong> Ongoing</p>
+            <p>Access the latest job opportunities recommended by our alumni and mentors.</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2025 GradConnect Platform
+</footer>
+
+</body>
+</html>
