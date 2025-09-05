@@ -54,7 +54,6 @@ signUpForm.addEventListener("submit", (e) => {
   }
 
   console.log(`Account created successfully as ${role.charAt(0).toUpperCase() + role.slice(1)}!`)
-
   signUpForm.reset()
 })
 
