@@ -1,0 +1,163 @@
+/* General */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background: #f0f4f8;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  background: linear-gradient(90deg, #4481eb, #6aa0f8);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+header p {
+  margin: 8px 0 0 0;
+  font-size: 1rem;
+}
+
+/* Container */
+.container {
+  flex: 1;
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 15px;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+/* Card */
+.card, .form-card {
+  background-color: white;
+  border-radius: 14px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+  padding: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .form-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.18);
+}
+
+.card h2, .form-card h2 {
+  color: #4481eb;
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+}
+
+.card p {
+  margin: 6px 0;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+/* Grid Fix for Jobs + Requests */
+.jobs-grid, .requests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  background: linear-gradient(90deg, #4481eb, #6aa0f8);
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #1c6ed4, #4481eb);
+}
+
+/* Accept / Decline buttons */
+.btn-accept {
+  background: #2ecc71;
+  margin-right: 8px;
+}
+
+.btn-accept:hover {
+  background: #27ae60;
+}
+
+.btn-decline {
+  background: #e74c3c;
+}
+
+.btn-decline:hover {
+  background: #c0392b;
+}
+
+/* Inputs & Forms */
+input, textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #4481eb;
+  box-shadow: 0 0 5px rgba(68,129,235,0.5);
+}
+
+/* Toggle Button */
+.toggle-btn {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.toggle-btn.yes {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.toggle-btn.no {
+  background-color: #e74c3c;
+  color: white;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(90deg, #4481eb, #6aa0f8);
+  color: white;
+  margin-top: 30px;
+}
+
+
+
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Search / Connect</title>
+  <link rel="stylesheet" href="../public/css/student.css">
+</head>
+<body>
+  <header>
+    <h1>Search / Connect</h1>
+    <p>Find alumni and mentors by name, skill, industry, or year</p>
+  </header>
+
+  <main class="container">
+    <div class="card search-form">
+      <input id="name" type="text" placeholder="Name (optional)">
+      <input id="skill" type="text" placeholder="Skill (optional)">
+      <input id="industry" type="text" placeholder="Industry (optional)">
+      <input id="year" type="number" placeholder="Year (optional)">
+      <div style="display:flex; justify-content:center;">
+        <button id="search-btn" class="btn">Search</button>
+      </div>
+    </div>
+
+    <div id="results" class="results"></div>
+  </main>
+
+  <footer>&copy; 2025 GradConnect Platform</footer>
+  <script src="../public/js/student.js"></script>
+</body>
+</html>
+

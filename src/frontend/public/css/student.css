@@ -1,0 +1,256 @@
+/* student.css - focused, minimal, matches original look-and-feel */
+
+/* Reset / base */
+* { box-sizing: border-box; }
+html,body { height: 100%; }
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background: #f0f4f8;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Header */
+header {
+  background: linear-gradient(90deg,#4481eb,#6aa0f8);
+  color: #fff;
+  text-align: center;
+  padding: 18px 16px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+}
+header h1 { margin: 0; font-size: 1.8rem; }
+header p { margin: 6px 0 0 0; opacity: 0.95; font-size: 0.95rem; }
+
+/* Main container */
+.container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 28px auto;
+  padding: 0 16px;
+  flex: 1;
+}
+
+/* Generic card */
+.card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+  transition: transform .16s ease, box-shadow .16s ease;
+}
+.card:hover { transform: translateY(-3px); box-shadow: 0 12px 24px rgba(0,0,0,0.10); }
+
+/* BUTTON */
+.btn {
+  display:inline-block;
+  padding: 10px 16px;
+  background: linear-gradient(90deg,#4481eb,#6aa0f8);
+  color:#fff;
+  border-radius:8px;
+  border:0;
+  text-decoration:none;
+  cursor:pointer;
+  font-weight:500;
+}
+.btn:hover { background: linear-gradient(90deg,#1c6ed4,#4481eb); }
+
+/* ===== Student Dashboard Layout =====
+   Two-column layout: profile (left) + actions (right)
+   Matches original spacing and alignment
+*/
+.dashboard-layout {
+  display: flex;
+  gap: 22px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Profile card - left */
+.profile-card {
+  flex: 0 0 320px;              /* fixed-ish width like original */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.profile-card h2 { margin:0 0 4px 0; color:#4481eb; font-size:1.35rem; }
+.profile-card p { margin:4px 0; color:#555; line-height:1.4; }
+.profile-meta { display:flex; gap:12px; margin-top:8px; font-size:0.95rem; color:#444; }
+
+/* Actions (right) */
+.actions {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.action-card {
+  text-align: left;
+}
+.action-card h3 { margin: 0 0 8px 0; color:#4481eb; font-size:1.15rem; }
+.action-card p { margin: 0 0 12px 0; color:#555; }
+.action-card .btn { display:block; width: fit-content; }
+
+/* ===== Connect Page: search form & results ===== */
+.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.search-form input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #d0d0d0;
+  font-size: 1rem;
+  background: #fff;
+}
+.search-form button {
+  width: 160px;
+  align-self: center;
+  margin-top: 4px;
+}
+
+/* Results grid: initially empty */
+.results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+/* Alumni card inside results */
+.alumni-card {
+  padding: 14px;
+}
+.alumni-card h3 { margin:0 0 6px 0; color:#4481eb; font-size:1.05rem; }
+.alumni-card p { margin:4px 0; color:#555; font-size:0.95rem; }
+.connect-btn {
+  margin-top:8px;
+  padding:8px 12px;
+  border-radius:8px;
+  border:0;
+  background: linear-gradient(90deg,#4481eb,#6aa0f8);
+  color:#fff;
+  cursor:pointer;
+}
+.connect-btn:hover { background: linear-gradient(90deg,#1c6ed4,#4481eb); }
+
+/* ===== Mentorship form - keep as you had it ===== */
+.mentorship-form {
+  max-width: 700px;
+  margin: 0 auto;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+/* ===== Events grid - preserved ===== */
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Small utilities */
+.sr-only { position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+
+/* Footer */
+footer {
+  text-align:center;
+  padding:18px 10px;
+  background: linear-gradient(90deg,#4481eb,#6aa0f8);
+  color:#fff;
+  margin-top:20px;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.04);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .dashboard-layout { flex-direction: column; }
+  .profile-card { width: 100%; flex: none; }
+  .actions { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  header h1 { font-size: 1.4rem; }
+  .card { padding: 16px; border-radius: 12px; }
+  .search-form button { width: 100%; }
+}
+/* === Patch: make dashboard action-cards equal-height and aligned ===
+   Place this at the end of student.css or replace the .action-card rules. */
+.actions {
+  /* ensure grid/flex children stretch to same height */
+  align-items: stretch; /* for grid or flex containers */
+}
+
+.action-card {
+  display: flex;              /* turn each card into a column flexbox */
+  flex-direction: column;     /* stack title, body, button vertically */
+  justify-content: space-between; /* push the action button to the bottom */
+  min-height: 170px;          /* tune this value to taste (150–220px) */
+  gap: 12px;                  /* consistent spacing inside card */
+}
+
+/* keep the button visually consistent but left-aligned inside the card */
+.action-card .btn {
+  align-self: flex-start;     /* keeps button left; use center if you prefer */
+  margin-top: 8px;
+}
+/* =========================
+   DASHBOARD-ONLY FINAL FIX
+   (scoped to .dashboard-layout; paste at END of student.css)
+   ========================= */
+
+/* Make the dashboard two-column layout stretch so the actions column
+   can match the profile-card height and the cards inside will line up. */
+.dashboard-layout {
+  display: flex !important;
+  gap: 22px !important;
+  align-items: stretch !important;    /* <--- key: stretch actions to match profile height */
+}
+
+/* Make actions a grid with equal-height rows */
+.dashboard-layout .actions {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+  gap: 18px !important;
+  grid-auto-rows: 1fr !important;     /* <--- equal row heights */
+  align-items: stretch !important;
+  align-content: start !important;
+}
+
+/* Force each child card inside the actions column to fill the grid cell
+   and to layout content vertically so the CTA can be pinned to the bottom. */
+.dashboard-layout .actions > .card,
+.dashboard-layout .actions > .action-card,
+.dashboard-layout .actions > div.action-card {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important; /* pushes button to bottom */
+  height: 100% !important;
+  gap: 10px !important;
+  padding: 20px !important; /* keep padding consistent with other cards */
+  box-sizing: border-box !important;
+}
+
+/* Make the CTA consistently bottom-aligned inside the card */
+.dashboard-layout .actions > .card .btn,
+.dashboard-layout .actions > .action-card .btn,
+.dashboard-layout .actions > div.action-card .btn {
+  margin-top: auto !important;
+  align-self: flex-start !important; /* left align button; change to center if you prefer */
+}
+
+/* Optional: if some older rule sets a fixed min-height, ensure it doesn't break layout */
+.dashboard-layout .actions > .card[style],
+.dashboard-layout .actions > .action-card[style] {
+  min-height: 0 !important;
+}
+
+/* If your profile-card is much shorter/longer, you can cap the minimum height of actions
+   (uncomment and tweak if needed): */
+/* .dashboard-layout .actions { min-height: 220px !important; } */
