@@ -254,3 +254,24 @@ footer {
 /* If your profile-card is much shorter/longer, you can cap the minimum height of actions
    (uncomment and tweak if needed): */
 /* .dashboard-layout .actions { min-height: 220px !important; } */
+
+/* Make the View Profile card full width */
+.view-profile-card {
+  width: 100%;
+  max-width: 600px; /* optional for consistent size */
+  margin: 0 auto 20px auto; /* center horizontally with bottom spacing */
+}
+
+/* Row for the other three cards */
+.dashboard-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center; /* center horizontally */
+  flex-wrap: wrap; /* wrap on small screens */
+}
+
+/* Each card inside row has same height */
+.dashboard-row .card {
+  flex: 1 1 200px; /* grow/shrink, min-width 200px */
+  max-width: 300px; /* optional to limit width */
+}

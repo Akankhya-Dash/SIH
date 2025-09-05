@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - Student | GradConnect</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #4481eb, #1e3c72); /* new blue */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .profile-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 30px;
+      width: 420px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      text-align: center;
+      animation: fadeIn 0.6s ease-in-out;
+      transition: 0.3s;
+    }
+
+    .profile-card:hover {
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+      transform: translateY(-5px);
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      color: #1e3c72; /* darker blue for strong contrast */
+      font-size: 24px;
+      font-weight: bold; /* full sentence bold */
+    }
+
+    .detail {
+      text-align: left;
+      margin: 10px 0;
+      font-size: 15px;
+      color: #444;
+    }
+
+    .edit-btn {
+      margin-top: 15px;
+      background: linear-gradient(90deg, #4481eb, #1e3c72);
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      font-size: 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .edit-btn:hover {
+      background: linear-gradient(90deg, #1e3c72, #4481eb);
+      transform: scale(1.05);
+    }
+
+    .edit-form {
+      display: none;
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .edit-form input, .edit-form textarea {
+      width: 100%;
+      padding: 8px;
+      margin: 6px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .save-btn {
+      margin-top: 10px;
+      background: linear-gradient(90deg, #4481eb, #1e3c72);
+      border: none;
+      color: white;
+      padding: 8px 15px;
+      font-size: 13px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .save-btn:hover {
+      background: linear-gradient(90deg, #1e3c72, #4481eb);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-card">
+    <h2 id="welcome">Welcome Naincy Priya 👋</h2>
+
+    <div id="profileDetails">
+      <p class="detail"><b>Name:</b> <span id="name">Naincy Priya</span></p>
+      <p class="detail"><b>Batch:</b> <span id="batch">2025</span></p>
+      <p class="detail"><b>Interests:</b> <span id="interests">Web Development, Mentorship</span></p>
+      <p class="detail"><b>Skills:</b> <span id="skills">HTML, CSS, JavaScript</span></p>
+      <p class="detail"><b>Industry:</b> <span id="industry">Computer Science</span></p>
+    </div>
+
+    <button class="edit-btn" onclick="toggleForm()">Edit Profile</button>
+
+    <div class="edit-form" id="editForm">
+      <input type="text" id="editName" placeholder="Enter name">
+      <input type="text" id="editBatch" placeholder="Enter batch">
+      <textarea id="editInterests" placeholder="Enter interests"></textarea>
+      <input type="text" id="editSkills" placeholder="Enter skills">
+      <input type="text" id="editIndustry" placeholder="Enter industry">
+      <button class="save-btn" onclick="saveProfile()">Save</button>
+    </div>
+  </div>
+
+  <script>
+    if (!localStorage.getItem("user")) {
+      const user = {
+        name: "Naincy Priya",
+        email: "naincy@example.com",
+        batch: "2025",
+        interests: "Web Development, Mentorship",
+        skills: "HTML, CSS, JavaScript",
+        industry: "Computer Science"
+      };
+      localStorage.setItem("user", JSON.stringify(user));
+    }
+
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    document.getElementById("welcome").innerText = Welcome ${user.name} 👋;
+    document.getElementById("name").innerText = user.name;
+    document.getElementById("batch").innerText = user.batch;
+    document.getElementById("interests").innerText = user.interests;
+    document.getElementById("skills").innerText = user.skills;
+    document.getElementById("industry").innerText = user.industry;
+
+    function toggleForm() {
+      const form = document.getElementById("editForm");
+      form.style.display = form.style.display === "block" ? "none" : "block";
+    }
+
+    function saveProfile() {
+      user.name = document.getElementById("editName").value || user.name;
+      user.batch = document.getElementById("editBatch").value || user.batch;
+      user.interests = document.getElementById("editInterests").value || user.interests;
+      user.skills = document.getElementById("editSkills").value || user.skills;
+      user.industry = document.getElementById("editIndustry").value || user.industry;
+
+      localStorage.setItem("user", JSON.stringify(user));
+      location.reload();
+    }
+  </script>
+</body>
+</html>
