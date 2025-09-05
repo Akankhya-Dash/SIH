@@ -7,51 +7,51 @@
   <link rel="stylesheet" href="../../public/css/alumni.css">
 </head>
 <body>
+
   <!-- Header -->
   <header>
     <h1>Alumni Dashboard</h1>
     <p>Manage your mentorship and job opportunities</p>
   </header>
 
-  <!-- Container -->
-  <div class="container">
-    <div class="dashboard-grid">
+  <!-- Main container -->
+  <main class="container">
 
-      <!-- Profile Card -->
-      <div class="card profile-card">
-        <h2>Alumni Profile</h2>
-        <p><strong>Name:</strong> John Doe</p>
-        <p><strong>Email:</strong> john.doe@example.com</p>
-        <p><strong>Batch:</strong> 2018</p>
-        <p><strong>Company:</strong> Microsoft</p>
-      </div>
+    <!-- Top card: View Profile -->
+    <div class="card view-profile-card">
+      <h3>View Profile</h3>
+      <p>Check and update your profile details.</p>
+      <a href="profile.html" class="btn">Go</a>
+    </div>
 
-      <!-- Mentorship Toggle -->
+    <!-- Row of other cards side by side -->
+    <div class="dashboard-row">
       <div class="card">
         <h2>Mentorship Availability</h2>
+        <p>Set your availability to guide students and help them grow.</p>
         <button id="mentorshipToggle" class="toggle-btn yes">Yes</button>
       </div>
 
-      <!-- View Jobs -->
       <div class="card">
         <h2>View Job Opportunities</h2>
+        <p>See all the current openings posted by your college or peers.</p>
         <a href="view-jobs.html" class="btn">View Jobs</a>
       </div>
 
-      <!-- Post Jobs -->
       <div class="card">
         <h2>Post Job Opportunities</h2>
+        <p>Share new job openings or internship opportunities with students.</p>
         <a href="post-job.html" class="btn">Post a Job</a>
       </div>
 
-      <!-- Mentorship Requests -->
       <div class="card">
         <h2>Mentorship Requests</h2>
+        <p>View and respond to mentorship requests from students seeking guidance.</p>
         <a href="mentorship-requests.html" class="btn">View Requests</a>
       </div>
-
     </div>
-  </div>
+
+  </main>
 
   <!-- Footer -->
   <footer>
@@ -61,8 +61,4 @@
   <script src="../../public/js/alumni.js"></script>
 </body>
 </html>
-
-
-
-
 

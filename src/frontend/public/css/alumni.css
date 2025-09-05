@@ -158,6 +158,111 @@ footer {
   margin-top: 30px;
 }
 
+/* ===== Alumni Dashboard: top + side-by-side cards ===== */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center horizontally */
+  gap: 30px;
+}
+
+/* Top view profile card */
+.view-profile-card {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Row for other cards side by side */
+.dashboard-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  width: 100%;
+  justify-items: center;
+}
+
+/* Make all cards equal height */
+.dashboard-row .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 180px;
+}
+
+/* Bottom-align buttons */
+.dashboard-row .card .btn,
+.dashboard-row .card .toggle-btn {
+  margin-top: auto;
+  align-self: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .dashboard-row {
+    grid-template-columns: 1fr 1fr; /* 2 per row */
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-row {
+    grid-template-columns: 1fr; /* 1 per row */
+  }
+}
+/* ===== Alumni Dashboard Layout Fix ===== */
+
+/* Container centers everything */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* horizontally center */
+  gap: 30px;
+}
+
+/* View profile card on top, fixed width */
+.view-profile-card {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Row for other cards side by side */
+.dashboard-row {
+  display: flex;
+  flex-wrap: wrap;       /* wrap on smaller screens */
+  justify-content: center; /* center horizontally */
+  gap: 25px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* Make all cards equal height */
+.dashboard-row .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 260px;
+  min-height: 180px;
+  flex: 1; /* equal width */
+}
+
+/* Bottom align buttons */
+.dashboard-row .card .btn,
+.dashboard-row .card .toggle-btn {
+  margin-top: auto;
+  align-self: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .dashboard-row .card {
+    min-width: 45%; /* two per row */
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-row .card {
+    min-width: 100%; /* stacked on small screens */
+  }
+}
 
 
 

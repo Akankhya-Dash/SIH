@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - Alumni | GradConnect</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #4481eb, #1e3c72);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .profile-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 30px;
+      width: 460px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      text-align: center;
+      animation: fadeIn 0.6s ease-in-out;
+      transition: 0.3s;
+    }
+
+    .profile-card:hover {
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+      transform: translateY(-5px);
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      color: #1e3c72;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .detail {
+      text-align: left;
+      margin: 10px 0;
+      font-size: 15px;
+      color: #444;
+    }
+
+    .edit-btn {
+      margin-top: 15px;
+      background: linear-gradient(90deg, #4481eb, #1e3c72);
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      font-size: 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .edit-btn:hover {
+      background: linear-gradient(90deg, #1e3c72, #4481eb);
+      transform: scale(1.05);
+    }
+
+    .edit-form {
+      display: none;
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .edit-form input, .edit-form textarea {
+      width: 100%;
+      padding: 8px;
+      margin: 6px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .save-btn {
+      margin-top: 10px;
+      background: linear-gradient(90deg, #4481eb, #1e3c72);
+      border: none;
+      color: white;
+      padding: 8px 15px;
+      font-size: 13px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .save-btn:hover {
+      background: linear-gradient(90deg, #1e3c72, #4481eb);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-card">
+    <h2 id="welcome">Welcome Ananya Sharma 👋</h2>
+
+    <div id="profileDetails">
+      <p class="detail"><b>Name:</b> <span id="name">Ananya Sharma</span></p>
+      <p class="detail"><b>Graduation Year:</b> <span id="gradYear">2018</span></p>
+      <p class="detail"><b>Current Company:</b> <span id="company">Microsoft</span></p>
+      <p class="detail"><b>Role:</b> <span id="role">Software Engineer</span></p>
+      <p class="detail"><b>Industry:</b> <span id="industry">Cloud Computing</span></p>
+      <p class="detail"><b>Achievements:</b> <span id="achievements">Led Azure project, 3 international publications</span></p>
+    </div>
+
+    <button class="edit-btn" onclick="toggleForm()">Edit Profile</button>
+
+    <div class="edit-form" id="editForm">
+      <input type="text" id="editName" placeholder="Enter name">
+      <input type="text" id="editGradYear" placeholder="Enter graduation year">
+      <input type="text" id="editCompany" placeholder="Enter current company">
+      <input type="text" id="editRole" placeholder="Enter role">
+      <input type="text" id="editIndustry" placeholder="Enter industry">
+      <textarea id="editAchievements" placeholder="Enter achievements"></textarea>
+      <button class="save-btn" onclick="saveProfile()">Save</button>
+    </div>
+  </div>
+
+  <script>
+    if (!localStorage.getItem("alumni")) {
+      const alumni = {
+        name: "Ananya Sharma",
+        email: "ananya.sharma@example.com",
+        gradYear: "2018",
+        company: "Microsoft",
+        role: "Software Engineer",
+        industry: "Cloud Computing",
+        achievements: "Led Azure project, 3 international publications"
+      };
+      localStorage.setItem("alumni", JSON.stringify(alumni));
+    }
+
+    const alumni = JSON.parse(localStorage.getItem("alumni"));
+
+    document.getElementById("welcome").innerText = Welcome ${alumni.name} 👋;
+    document.getElementById("name").innerText = alumni.name;
+    document.getElementById("gradYear").innerText = alumni.gradYear;
+    document.getElementById("company").innerText = alumni.company;
+    document.getElementById("role").innerText = alumni.role;
+    document.getElementById("industry").innerText = alumni.industry;
+    document.getElementById("achievements").innerText = alumni.achievements;
+
+    function toggleForm() {
+      const form = document.getElementById("editForm");
+      form.style.display = form.style.display === "block" ? "none" : "block";
+    }
+
+    function saveProfile() {
+      alumni.name = document.getElementById("editName").value || alumni.name;
+      alumni.gradYear = document.getElementById("editGradYear").value || alumni.gradYear;
+      alumni.company = document.getElementById("editCompany").value || alumni.company;
+      alumni.role = document.getElementById("editRole").value || alumni.role;
+      alumni.industry = document.getElementById("editIndustry").value || alumni.industry;
+      alumni.achievements = document.getElementById("editAchievements").value || alumni.achievements;
+
+      localStorage.setItem("alumni", JSON.stringify(alumni));
+      location.reload();
+    }
+  </script>
+</body>
+</html>
