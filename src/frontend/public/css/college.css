@@ -1,0 +1,181 @@
+/* General body and header */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background: #f0f4f8;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background: linear-gradient(90deg, #4481eb, #6aa0f8);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+header h1 { margin: 0; font-size: 2rem; }
+header p { margin: 8px 0 0 0; font-size: 1rem; }
+
+.container {
+    flex: 1;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+/* Stats cards for dashboard */
+.stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.stat-card {
+    flex: 1 1 220px;
+    background-color: white;
+    border-radius: 14px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    padding: 25px 20px;
+    text-align: center;
+}
+
+.stat-card h2 { color: #4481eb; font-size: 1.4rem; margin-bottom: 10px; }
+.stat-card p { font-size: 1.1rem; color: #555; }
+
+/* Action cards for dashboard */
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
+
+.action-card {
+    flex: 1 1 250px;
+    background-color: white;
+    border-radius: 14px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    padding: 30px 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.action-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+
+.action-card h3 { color: #4481eb; margin-bottom: 12px; font-size: 1.3rem; }
+.action-card p { margin-bottom: 18px; color: #555; }
+.action-card a {
+    display: inline-block;
+    padding: 12px 25px;
+    background: linear-gradient(90deg, #4481eb, #6aa0f8);
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.action-card a:hover {
+    background: linear-gradient(90deg, #1c6ed4, #4481eb);
+}
+
+/* Alumni Cards */
+.alumni-card {
+    background-color: white;
+    border-radius: 14px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.alumni-card h3 { color: #4481eb; margin: 0 0 10px 0; }
+.alumni-card p { margin: 4px 0; color: #555; }
+
+.toggle label {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    margin-top: 5px;
+}
+.available { background-color: #28a745; }
+.not-available { background-color: #dc3545; }
+
+/* Opportunities cards */
+.opportunity-card {
+    background-color: white;
+    border-radius: 14px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.opportunity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+
+.opportunity-card h3 { color: #4481eb; margin-bottom: 10px; }
+.opportunity-card p { margin: 4px 0; color: #555; }
+
+/* Announcement form */
+.announcement-form {
+    background-color: white;
+    border-radius: 14px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.announcement-form input, .announcement-form textarea, .announcement-form button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.announcement-form button {
+    background: linear-gradient(90deg, #4481eb, #6aa0f8);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.announcement-form button:hover {
+    background: linear-gradient(90deg, #1c6ed4, #4481eb);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 25px;
+    background: linear-gradient(90deg, #4481eb, #6aa0f8);
+    color: white;
+    margin-top: 30px;
+}
+
+/* Responsive */
+@media(max-width: 600px){
+    .action-card, .stat-card, .alumni-card, .opportunity-card {
+        flex: 1 1 100%;
+    }
+}
+

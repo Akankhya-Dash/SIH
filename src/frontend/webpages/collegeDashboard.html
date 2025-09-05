@@ -3,17 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>College Dashboard</title>
-<link rel="stylesheet" href="../public/css/style.css">
+<title>College Management Dashboard</title>
+<link rel="stylesheet" href="../public/css/college.css">
 </head>
 <body>
 
 <header>
     <h1>College Management Dashboard</h1>
-    <p>Monitor alumni mentorship and college activities</p>
+    <p>Monitor alumni mentorship and college-related activities</p>
 </header>
 
 <div class="container">
+    <!-- Stats -->
     <div class="stats">
         <div class="stat-card">
             <h2>200+</h2>
@@ -33,21 +34,24 @@
         </div>
     </div>
 
+    <!-- Action Cards -->
     <div class="actions">
         <div class="action-card">
             <h3>Manage Alumni</h3>
             <p>View and manage registered alumni and their mentorship status.</p>
-            <a href="#">Go</a>
+            <a href="manage-alumni.html">Go</a>
         </div>
+
         <div class="action-card">
             <h3>Post Announcements</h3>
             <p>Share college-wide announcements, news, or updates.</p>
-            <a href="announcements.html">Post</a>
+            <a href="post-announcements.html" class="blue-btn">Post</a>
         </div>
+
         <div class="action-card">
             <h3>View Opportunities</h3>
-            <p>Monitor job postings, internship opportunities, and mentorship requests.</p>
-            <a href="view-opportunities.html">View</a>
+            <p>Monitor job postings, internships, and mentorship requests.</p>
+            <a href="view-opportunities.html">Go</a>
         </div>
     </div>
 </div>
@@ -56,6 +60,11 @@
     &copy; 2025 GradConnect Platform
 </footer>
 
-<script src="../public/js/script.js" defer></script>
+<!-- JS linked after footer -->
+<script src="../public/js/college.js"></script>
+
 </body>
 </html>
+
+
+
