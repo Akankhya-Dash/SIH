@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Alumni Profile</title>
+
+  <!-- Inline CSS (same visual style as student form) -->
+  <style>
+    :root{
+      --bg-1: #eaf2ff;
+      --bg-2: #f5f9ff;
+      --card-bg: #ffffff;
+      --blue-600: #2563eb;
+      --blue-700: #1d4ed8;
+      --muted: #94a3b8;
+      --border: #d1d5db;
+      --field-bg: #f9fafb;
+      --shadow: 0 10px 28px rgba(0,0,0,0.08);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;font-family: "Segoe UI", Inter, Arial, sans-serif}
+    html,body{height:100%}
+
+    body{
+      background: linear-gradient(135deg,var(--bg-1),var(--bg-2));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      color:#102033;
+    }
+
+    .form-box{
+      width:100%;
+      max-width:520px;          /* roomy like student form */
+      background:var(--card-bg);
+      border-radius:14px;
+      padding:34px;
+      box-shadow:var(--shadow);
+    }
+
+    h1,h2{margin:0}
+    h2{
+      text-align:center;
+      font-size:22px;
+      font-weight:700;
+      color:var(--blue-600);
+      margin-bottom:22px;
+    }
+
+    form { display:block; width:100% }
+
+    .row { display:block; width:100%; margin-bottom:16px }
+
+    label{
+      display:block;
+      font-size:14px;
+      font-weight:600;
+      color:#1f2937;
+      margin-bottom:8px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea {
+      width:100%;
+      padding:12px 14px;
+      border-radius:10px;
+      border:1px solid var(--border);
+      background:var(--field-bg);
+      font-size:15px;
+      color:#0f172a;
+      transition: box-shadow .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    input::placeholder,
+    textarea::placeholder { color:var(--muted); font-size:14px }
+
+    input:focus, select:focus, textarea:focus{
+      outline:none;
+      border-color:var(--blue-600);
+      background:#fff;
+      box-shadow: 0 0 0 6px rgba(37,99,235,0.06);
+    }
+
+    textarea { min-height:110px; resize:vertical; }
+
+    .actions { margin-top:6px; display:flex; gap:12px; align-items:center; }
+
+    button[type="submit"]{
+      flex:1;
+      padding:13px 16px;
+      border-radius:10px;
+      border:0;
+      cursor:pointer;
+      font-weight:700;
+      font-size:15px;
+      color:#fff;
+      background: linear-gradient(135deg, var(--blue-600), var(--blue-700));
+      transition: transform .14s ease, filter .14s ease;
+    }
+
+    button[type="submit"]:hover{ transform: translateY(-2px); filter:brightness(.98) }
+
+    /* small helpers for spacing if you want two-column later */
+    .two { display:grid; grid-template-columns: 1fr 1fr; gap:14px }
+    @media (max-width:520px){ .form-box{padding:22px} .two{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  <div class="form-box" role="main">
+    <h2>Alumni Profile</h2>
+
+    <form id="alumniForm" autocomplete="off">
+      <div class="row">
+        <label for="name">Full name</label>
+        <input id="name" name="name" type="text" placeholder="e.g. Rohit Sharma" required>
+      </div>
+
+      <div class="row two">
+        <div>
+          <label for="gradYear">Graduation year</label>
+          <input id="gradYear" name="gradYear" type="number" placeholder="e.g. 2018" min="1900" max="2100" required>
+        </div>
+        <div>
+          <label for="role">Current role</label>
+          <input id="role" name="role" type="text" placeholder="e.g. Senior Product Manager">
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="company">Current company</label>
+        <input id="company" name="company" type="text" placeholder="e.g. Acme Corp">
+      </div>
+
+      <div class="row">
+        <label for="industry">Industry</label>
+        <select id="industry" name="industry" required>
+          <option value="">Select industry</option>
+          <option>Information Technology</option>
+          <option>Finance</option>
+          <option>Education</option>
+          <option>Healthcare</option>
+          <option>Consulting</option>
+          <option>Product</option>
+        </select>
+      </div>
+
+      <div class="row">
+        <label for="achievements">Achievements</label>
+        <textarea id="achievements" name="achievements" placeholder="Awards, mentorship, open-source contributions, short summary..."></textarea>
+      </div>
+
+      <div class="actions">
+        <button type="submit">Save Alumni</button>
+      </div>
+    </form>
+  </div>
+
+  
+  <script>
+    // Get the alumni form element
+const alumniForm = document.getElementById("alumniForm");
+
+if (alumniForm) {
+  alumniForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    // Collect form data
+    const data = Object.fromEntries(new FormData(alumniForm).entries());
+    console.log("Alumni Data:", data);
+
+    // Confirmation
+    alert("Alumni details saved successfully!");
+
+    // ✅ Redirect to login page (outside alumni folder)
+    window.location.href = "../login.html";
+  });
+}
+
+  </script>
+</body>
+</html>

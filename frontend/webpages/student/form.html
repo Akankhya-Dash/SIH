@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Profile</title>
+  <style>
+  /* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #6aa0f8, #eaf2ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #1e293b;
+}
+
+.container {
+  width: 100%;
+  max-width: 460px;
+  padding: 20px;
+}
+
+.form-box {
+  background: #ffffff;
+  padding: 32px 28px;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+}
+
+.form-box:hover {
+  transform: translateY(-3px);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #4481eb; /* heading in your main blue */
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #4481eb;
+  background: #ffffff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(68, 129, 235, 0.15);
+}
+
+input::placeholder {
+  color: #94a3b8;
+}
+
+/* Button */
+button[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #4481eb, #6aa0f8);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(135deg, #3b76da, #5c92ef);
+  transform: translateY(-2px);
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-box">
+      <h2>Student Profile</h2>
+      <form id="studentForm" class="form">
+        <label>Full Name</label>
+        <input type="text" name="name" placeholder="Enter your name" required>
+
+        <label>Batch (Year)</label>
+        <input type="text" name="batch" placeholder="e.g. 2024">
+
+        <label>Interests</label>
+        <input type="text" name="interests" placeholder="e.g. Web Dev, AI">
+
+        <label>Skills</label>
+        <input type="text" name="skills" placeholder="e.g. Java, Python">
+
+        <label>Industry</label>
+        <select name="industry">
+          <option value="">Select industry</option>
+          <option>Information Technology</option>
+          <option>Finance</option>
+          <option>Education</option>
+          <option>Healthcare</option>
+          <option>Consulting</option>
+          <option>Product</option>
+        </select>
+
+        <button type="submit">Save Student</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Load only student.js -->
+  <script>
+    // Get the form element
+const form = document.getElementById("studentForm");
+
+if (form) {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault(); // stop the page from reloading
+
+    // Collect all form data
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    // Log the form data (for testing)
+    console.log("Form Data:", data);
+
+    // Show a confirmation message
+    alert("Details saved successfully!");
+
+    // Redirect to login page
+    // If login.html is in the same folder as form.html, this works:
+    window.location.href = "../login.html";
+
+   
+  });
+}
+
+  </script>
+</body>
+</html>
+
