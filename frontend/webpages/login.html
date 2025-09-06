@@ -21,9 +21,10 @@
       .container {
         position: relative;
         width: 100%;
-        background-color: #fff;
+        background-color: #1c1c1c;
         min-height: 100vh;
         overflow: hidden;
+        font-family: Arial, sans-serif;
       }
 
       .forms-container {
@@ -56,6 +57,10 @@
         overflow: hidden;
         grid-column: 1 / 2;
         grid-row: 1 / 2;
+        background: rgba(18,18,18,0.6);
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: 0 6px 20px rgba(255, 87, 34, 0.4);
       }
 
       form.sign-up-form {
@@ -68,15 +73,15 @@
       }
 
       .title {
-        font-size: 2.2rem;
-        color: #444;
-        margin-bottom: 10px;
+        font-size: 2rem;
+        color: #fff;
+        margin-bottom: 20px;
       }
 
       .input-field {
         max-width: 380px;
         width: 100%;
-        background-color: #f0f0f0;
+        background-color: #2a2a2a;
         margin: 10px 0;
         height: 55px;
         border-radius: 55px;
@@ -89,7 +94,7 @@
       .input-field i {
         text-align: center;
         line-height: 55px;
-        color: #acacac;
+        color: #bbb;
         transition: 0.5s;
         font-size: 1.1rem;
       }
@@ -101,21 +106,41 @@
         border: none;
         line-height: 1;
         font-weight: 600;
-        font-size: 1.1rem;
-        color: #333;
+        font-size: 1rem;
+        color: #fff;
         padding: 0;
         width: 100%;
         height: 100%;
+        cursor: pointer;
       }
 
       .input-field input::placeholder {
-        color: #aaa;
+        color: #bbb;
         font-weight: 500;
+      }
+
+      /* Custom dropdown */
+      .input-field select {
+        appearance: none;
+        padding-left: 5px;
+      }
+
+      .input-field select option {
+        background: #2a2a2a;
+        color: #fff;
+        padding: 10px;
+      }
+
+      .input-field select option:checked,
+      .input-field select option:hover {
+        background: #FFA726;
+        color: #fff;
       }
 
       .social-text {
         padding: 0.7rem 0;
         font-size: 1rem;
+        color: #bbb;
       }
 
       .social-media {
@@ -130,22 +155,22 @@
         justify-content: center;
         align-items: center;
         margin: 0 0.45rem;
-        color: #333;
+        color: #fff;
         border-radius: 50%;
-        border: 1px solid #333;
+        border: 1px solid #fff;
         text-decoration: none;
         font-size: 1.1rem;
         transition: 0.3s;
       }
 
       .social-icon:hover {
-        color: #4481eb;
-        border-color: #4481eb;
+        color: #FFA726;
+        border-color: #FFA726;
       }
 
       .btn {
         width: 150px;
-        background-color: #5995fd;
+        background-color: #FFA726;
         border: none;
         outline: none;
         height: 49px;
@@ -159,7 +184,7 @@
       }
 
       .btn:hover {
-        background-color: #4d84e2;
+        background-color: rgba(255, 167, 38, 0.8);
       }
 
       .panels-container {
@@ -180,7 +205,7 @@
         top: -10%;
         right: 48%;
         transform: translateY(-50%);
-        background-image: linear-gradient(-45deg, #4481eb 0%, #04befe 100%);
+        background-image: linear-gradient(-45deg, #2a2a2a 0%, #1c1c1c 100%);
         transition: 1.8s ease-in-out;
         border-radius: 50%;
         z-index: 6;
@@ -215,21 +240,29 @@
         font-weight: 600;
         line-height: 1;
         font-size: 1.5rem;
+        color: #FFA726;
       }
 
       .panel p {
         font-size: 0.95rem;
         padding: 0.7rem 0;
+        color: #bbb;
       }
 
       .btn.transparent {
         margin: 0;
         background: none;
-        border: 2px solid #fff;
+        border: 2px solid #FFA726;
         width: 130px;
         height: 41px;
         font-weight: 600;
         font-size: 0.8rem;
+        color: #FFA726;
+      }
+
+      .btn.transparent:hover {
+        background: #FFA726;
+        color: #fff;
       }
 
       .right-panel .content {
@@ -270,169 +303,47 @@
       .container.sign-up-mode .right-panel {
         pointer-events: all;
       }
-
-      @media (max-width: 870px) {
-        .container {
-          min-height: 800px;
-          height: 100vh;
-        }
-        .signin-signup {
-          width: 100%;
-          top: 95%;
-          transform: translate(-50%, -100%);
-          transition: 1s 0.8s ease-in-out;
-        }
-
-        .signin-signup,
-        .container.sign-up-mode .signin-signup {
-          left: 50%;
-        }
-
-        .panels-container {
-          grid-template-columns: 1fr;
-          grid-template-rows: 1fr 2fr 1fr;
-        }
-
-        .panel {
-          flex-direction: row;
-          justify-content: space-around;
-          align-items: center;
-          padding: 2.5rem 8%;
-          grid-column: 1 / 2;
-        }
-
-        .right-panel {
-          grid-row: 3 / 4;
-        }
-
-        .left-panel {
-          grid-row: 1 / 2;
-        }
-
-        .panel .content {
-          padding-right: 15%;
-          transition: transform 0.9s ease-in-out;
-          transition-delay: 0.8s;
-        }
-
-        .panel h3 {
-          font-size: 1.2rem;
-        }
-
-        .panel p {
-          font-size: 0.7rem;
-          padding: 0.5rem 0;
-        }
-
-        .btn.transparent {
-          width: 110px;
-          height: 35px;
-          font-size: 0.7rem;
-        }
-
-        .container:before {
-          width: 1500px;
-          height: 1500px;
-          transform: translateX(-50%);
-          left: 30%;
-          bottom: 68%;
-          right: initial;
-          top: initial;
-          transition: 2s ease-in-out;
-        }
-
-        .container.sign-up-mode:before {
-          transform: translate(-50%, 100%);
-          bottom: 32%;
-          right: initial;
-        }
-
-        .container.sign-up-mode .left-panel .content {
-          transform: translateY(-300px);
-        }
-
-        .container.sign-up-mode .right-panel .content {
-          transform: translateY(0px);
-        }
-
-        .right-panel .content {
-          transform: translateY(300px);
-        }
-
-        .container.sign-up-mode .signin-signup {
-          top: 5%;
-          transform: translate(-50%, 0);
-        }
-      }
-
-      @media (max-width: 570px) {
-        form {
-          padding: 0 1.5rem;
-        }
-
-        .panel .content {
-          padding: 0.5rem 1rem;
-        }
-        .container {
-          padding: 1.5rem;
-        }
-
-        .container:before {
-          bottom: 72%;
-          left: 50%;
-        }
-
-        .container.sign-up-mode:before {
-          bottom: 28%;
-          left: 50%;
-        }
-      }
     </style>
   </head>
   <body>
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
-          <form action="#" class="sign-in-form">
+          <!-- Sign In -->
+          <form action="#" class="sign-in-form" id="sign-in-form">
             <h2 class="title">Sign in</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
+              <input type="text" id="signin-username" placeholder="Username" />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" id="signin-password" placeholder="Password" />
             </div>
             <input type="submit" value="Login" class="btn solid" />
             <p class="social-text">Or Sign in with social platforms</p>
             <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-google"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
+              <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
             </div>
           </form>
-          <form action="#" class="sign-up-form">
+
+          <!-- Sign Up -->
+          <form action="#" class="sign-up-form" id="sign-up-form">
             <h2 class="title">Sign up</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
+              <input type="text" id="signup-username" placeholder="Username" />
             </div>
             <div class="input-field">
               <i class="fas fa-envelope"></i>
-              <input type="email" placeholder="Email" />
+              <input type="email" id="signup-email" placeholder="Email" />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" id="signup-password" placeholder="Password" />
             </div>
             <div class="input-field">
               <i class="fas fa-user-check"></i>
@@ -446,52 +357,34 @@
             <input type="submit" class="btn" value="Sign up" />
             <p class="social-text">Or Sign up with social platforms</p>
             <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-google"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
+              <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
             </div>
           </form>
         </div>
       </div>
 
+      <!-- Panels -->
       <div class="panels-container">
         <div class="panel left-panel">
           <div class="content">
             <h3>New here ?</h3>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-              ex ratione. Aliquid!
-            </p>
-            <button class="btn transparent" id="sign-up-btn">
-              Sign up
-            </button>
+            <p>Join us and explore the alumni-student network!</p>
+            <button class="btn transparent" id="sign-up-btn">Sign up</button>
           </div>
         </div>
         <div class="panel right-panel">
           <div class="content">
-            <h3>Join here</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-              laboriosam ad deleniti.
-            </p>
-            <button class="btn transparent" id="sign-in-btn">
-              Sign in
-            </button>
+            <h3>Already a member?</h3>
+            <p>Sign in to continue your journey with us.</p>
+            <button class="btn transparent" id="sign-in-btn">Sign in</button>
           </div>
         </div>
       </div>
     </div>
 
     <script src="../js/login.js"></script>
-
   </body>
 </html>

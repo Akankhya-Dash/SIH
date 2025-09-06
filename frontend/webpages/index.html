@@ -4,19 +4,308 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GradConnect | Alumni Connect</title>
-    <link rel="stylesheet" href="../css/index.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/all.min.css">
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+        body {
+            background: #121212;
+            color: #fff;
+        }
+        .header{
+            min-height: 100vh;
+            width: 100%;
+            background: linear-gradient(rgba(18,18,18,0.8),rgba(18,18,18,0.8)), 
+                        url(https://media.istockphoto.com/id/1496195459/photo/young-graduates-throwing-their-mortarboard-in-the-air-while-celebrating-on-graduation.webp);
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+        nav{
+            display: flex;
+            padding: 2% 6%;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-links{
+            flex: 1;
+            text-align: right;
+        }
+        .nav-links ul li{
+            list-style: none;
+            display: inline-block;
+            padding: 8px 12px;
+            position: relative;
+        }
+        .nav-links ul li a{
+            color: #fff;
+            text-decoration: none;
+            font-size: 17px;
+            transition: 0.3s;
+        }
+        .nav-links ul li a:hover {
+            color: #FFA726;
+        }
+        .nav-links ul li::after{
+            content: '';
+            width: 0%;
+            height: 2px;
+            background-color: #FFA726;
+            display: block;
+            margin: auto;
+            transition: 0.5s;
+        }
+        .nav-links ul li:hover::after{
+            width: 100%;
+        }
+        .text-box{
+            width: 90%;
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .text-box h1{
+            font-size: 56px;
+            color: #FFA726;
+        }
+        .text-box p{
+            margin: 10px 0 40px;
+            font-size: 18px;
+            color: #ddd;
+        }
+        .hero-btn{
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            border: 1px solid #FFA726;
+            padding: 12px 34px;
+            font-size: 15px;
+            background: #FFA726;
+            border-radius: 8px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .hero-btn:hover{
+            background: transparent;
+            color: #FFA726;
+        }
+        nav .fa{
+            display: none;
+        }
+        @media(max-width: 700px){
+            .text-box h1{
+                font-size: 28px;
+            }
+            .nav-links ul li{
+                display: block;
+            }
+            .nav-links{
+                position: absolute;
+                background-color: #1c1c1c;
+                height: 100vh;
+                width: 200px;
+                top: 0;
+                right: -200px;
+                text-align: left;
+                z-index: 2;
+                transition: 1s;
+            }
+            nav .fa{
+                display: block;
+                color: #fff;
+                margin: 10px;
+                font-size: 22px;
+                cursor: pointer;
+            }
+            .nav-links ul{
+                padding: 30px;
+            }
+        }
+
+        /* Section styling */
+        section {
+            background: #1c1c1c;
+            padding: 80px 10%;
+            margin: 30px auto;
+            border-radius: 16px;
+        }
+        h1{
+            font-size: 32px;
+            font-weight: 600;
+            color: #FFA726;
+            margin-bottom: 15px;
+        }
+        p{
+            color: #aaa;
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 22px;
+            padding: 10px 0;
+        }
+        .row{
+            margin-top: 5%;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .support-col, .testimonial-col{
+            flex-basis: 31%;
+            background: #2a2a2a;
+            border-radius: 12px;
+            margin-bottom: 5%;
+            padding: 20px 12px;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+        .support-col:hover, .testimonial-col:hover{
+            box-shadow: 0 0 20px 0px rgba(255, 167, 38, 0.4);
+        }
+        h3{
+            text-align: center;
+            font-weight: 600;
+            margin: 10px 0;
+            color: #fff;
+        }
+        .alumni .alumni-col {
+            flex-basis: 32%;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        .alumni .alumni-col img{
+            width: 100%;
+            display: block;
+            border-radius: 12px;
+        }
+        .layer{
+            background-color: rgba(18,18,18,0.6);
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: 0.5s;
+        }
+        .layer:hover{
+            background-color: rgba(255, 167, 38, 0.4);
+        }
+        .layer h3{
+            width: 100%;
+            font-weight: 500;
+            color: #fff;
+            font-size: 22px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            position: absolute;
+            opacity: 0;
+            transition: 0.5s;
+        }
+        .layer:hover h3{
+            bottom: 50%;
+            opacity: 1;
+        }
+
+        /* Facilities (updated modern card style) */
+        .facilities {
+            width: 90%;
+            margin: auto;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .facilities h1 {
+            font-size: 32px;
+            color: #FFA726;
+            margin-bottom: 15px;
+        }
+
+        .facilities p {
+            color: #aaa;
+            font-size: 15px;
+            margin-bottom: 40px;
+        }
+
+        .facilities .row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .facilities-col {
+            flex-basis: 32%;
+            background: #1c1c1c;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 0 0 rgba(0,0,0,0);
+        }
+
+        .facilities-col img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 2px solid #2a2a2a;
+        }
+
+        .facilities-col h3 {
+            color: #fff;
+            font-size: 20px;
+            margin: 15px 0 10px;
+            text-align: left;
+            padding: 0 15px;
+        }
+
+        .facilities-col p {
+            color: #bbb;
+            font-size: 14px;
+            text-align: left;
+            padding: 0 15px 20px;
+        }
+
+        .facilities-col:hover {
+            box-shadow: 0 6px 20px rgba(255, 167, 38, 0.4);
+            transform: translateY(-5px);
+        }
+
+        /* Testimonials */
+        .testimonial-col{
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            background: #2a2a2a;
+        }
+        .testimonial-col img{
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+        }
+        .testimonial-col p{
+            color: #ccc;
+        }
+    </style>
 </head>
 <body>
     <section class="header">
         <nav>
-            <a href="index.html"><img src="" alt=""></a>
+            <h2 style="color:#FFA726;">GradConnect</h2>
             <div class="nav-links" id="navLinks">
                 <i class="fa fa-times" onclick="hideMenu()"></i>
                 <ul>
                     <li><a href="">HOME</a></li>
                     <li><a href="login.html">Login</a></li>
-                    <li><a href="">Achivers</a></li>
+                    <li><a href="">Achievers</a></li>
                     <li><a href="">FAQ</a></li>
                     <li><a href="">Blog</a></li>
                 </ul>
@@ -25,12 +314,14 @@
         </nav>
 
         <div class="text-box">
-            <h1>Grad Connect <br>Celebrating Bonds Beyond Graduation</h1>
-            <p>We are delighted to bring together alumni, students, and mentors on one platform where journeys continue beyond graduation. Grad Connect is more than just a network—it’s a space to celebrate achievements, share opportunities, and foster lifelong bonds.</p>
+            <h1>Grad Connect</h1>
+            <p>Celebrating Bonds Beyond Graduation.<br>
+               Bringing together alumni, students, and mentors on one platform.</p>
             <a href="" class="hero-btn">JOIN US TO KNOW MORE</a>
         </div>
     </section>
 
+    <!-- Support -->
     <section class="support">
          <h1>Support & Opportunities</h1>
          <p>Alumni inspire through mentorship, open career doors, and empower futures.</p>
@@ -38,100 +329,88 @@
          <div class="row">
             <div class="support-col">
                 <h3>Mentorship & Guidance</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic itaque nostrum explicabo! Doloremque cumque inventore quasi neque corporis ullam expedita reiciendis nemo molestias dolor eligendi rem sint numquam, explicabo repellat repudiandae consectetur aperiam debitis.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
             <div class="support-col">
                 <h3>Career Opportunities</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic itaque nostrum explicabo! Doloremque cumque inventore quasi neque corporis ullam expedita reiciendis nemo molestias dolor eligendi rem sint numquam, explicabo repellat repudiandae consectetur aperiam debitis.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
             <div class="support-col">
                 <h3>Share Knowledge</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic itaque nostrum explicabo! Doloremque cumque inventore quasi neque corporis ullam expedita reiciendis nemo molestias dolor eligendi rem sint numquam, explicabo repellat repudiandae consectetur aperiam debitis.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
          </div>
-    
-    
-        </section>
+    </section>
 
-
+    <!-- Alumni -->
     <section class="alumni">
-    <h1>Our Global Alumni</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <h1>Our Global Alumni</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 
-    <div class="row">
-        <div class="alumni-col">
-            <img src="https://i.pinimg.com/736x/b6/af/dc/b6afdc6a6ef2214e35485f09605f936d.jpg" alt="">
-            <div class="layer">
-                <h3>Aarav Sharma</h3>
+        <div class="row">
+            <div class="alumni-col">
+                <img src="https://i.pinimg.com/736x/b6/af/dc/b6afdc6a6ef2214e35485f09605f936d.jpg" alt="">
+                <div class="layer"><h3>Aarav Sharma</h3></div>
+            </div>
+            <div class="alumni-col">
+                <img src="https://i.pinimg.com/736x/b6/af/dc/b6afdc6a6ef2214e35485f09605f936d.jpg" alt="">
+                <div class="layer"><h3>Aarav Sharma</h3></div>
+            </div>
+            <div class="alumni-col">
+                <img src="https://i.pinimg.com/736x/b6/af/dc/b6afdc6a6ef2214e35485f09605f936d.jpg" alt="">
+                <div class="layer"><h3>Aarav Sharma</h3></div>
             </div>
         </div>
-        <div class="alumni-col">
-            <img src="https://i.pinimg.com/736x/b6/af/dc/b6afdc6a6ef2214e35485f09605f936d.jpg" alt="">
-            <div class="layer">
-                <h3>Aarav Sharma</h3>
-            </div>
-        </div>
-        <div class="alumni-col">
-            <img src="https://i.pinimg.com/736x/b6/af/dc/b6afdc6a6ef2214e35485f09605f936d.jpg" alt="">
-            <div class="layer">
-                <h3>Aarav Sharma</h3>
-            </div>
-        </div>
-    </div>
-        </section>
+    </section>
 
-
+    <!-- Facilities -->
     <section class="facilities">
-        <h1>Our facilities</h1>
+        <h1>Our Facilities</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 
         <div class="row">
             <div class="facilities-col">
-                <img src="https://images.unsplash.com/photo-1677724042096-0ffe0f0427da?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Q2FyZWVyJTIwUmVzb3VyY2UlMjBDZW50ZXJ8ZW58MHx8MHx8fDA%3D" alt="">
+                <img src="https://images.unsplash.com/photo-1677724042096-0ffe0f0427da?w=600&auto=format&fit=crop&q=60" alt="">
                 <h3>Career Resource Center</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste delectus dolorem excepturi minima ratione.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
             <div class="facilities-col">
-                <img src="https://images.unsplash.com/photo-1598520106830-8c45c2035460?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8SW5ub3ZhdGlvbnxlbnwwfHwwfHx8MA%3D%3D" alt="">
+                <img src="https://images.unsplash.com/photo-1598520106830-8c45c2035460?w=600&auto=format&fit=crop&q=60" alt="">
                 <h3>Innovation Hub</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste delectus dolorem excepturi minima ratione.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
             <div class="facilities-col">
-                <img src="https://media.istockphoto.com/id/667434682/photo/personal-development-career-growth-and-motivation.webp?a=1&b=1&s=612x612&w=0&k=20&c=-si4ve65e1E-zs0Vyz2Cpwn5aihrjR9diGTTN0pC6-k=" alt="">
+                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&auto=format&fit=crop&q=60" alt="">
                 <h3>Mentorship</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste delectus dolorem excepturi minima ratione.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
         </div>
     </section>  
-    
-    
+
+    <!-- Testimonials -->
     <section class="testimonials">
-         <h1>What Our Alumni Says</h1>
-         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+         <h1>What Our Alumni Say</h1>
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 
          <div class="row">
             <div class="testimonial-col">
                 <img src="https://www.ledr.com/colours/white.jpg" alt="">
                 <div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, unde temporibus vel, quaerat cupiditate officia atque minus aperiam voluptatum totam pariatur reprehenderit illo in incidunt.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                     <h3>Rohan Mehta</h3>
                 </div>
             </div>
             <div class="testimonial-col">
                 <img src="https://www.ledr.com/colours/white.jpg" alt="">
                 <div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, unde temporibus vel, quaerat cupiditate officia atque minus aperiam voluptatum totam pariatur reprehenderit illo in incidunt.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                     <h3>Rohan Mehta</h3>
                 </div>
             </div>
          </div>
     </section>
-     
-
 
     <script>
-
-
         var navLinks = document.getElementById("navLinks");
         function showMenu(){
             navLinks.style.right = "0";
@@ -139,7 +418,6 @@
         function hideMenu(){
             navLinks.style.right = "-200px";
         }
-
     </script>
 </body>
 </html>
