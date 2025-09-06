@@ -2,23 +2,24 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    background: #f0f4f8;
+    background: #1c1c1c;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
 header {
-    background: linear-gradient(90deg, #4481eb, #6aa0f8);
-    color: white;
+    background: #2a2a2a;
+    color: #FFA726;
     text-align: center;
     padding: 20px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(255,152,0,0.2);
 }
 
 header h1 { margin: 0; font-size: 2rem; }
 header p { margin: 8px 0 0 0; font-size: 1rem; }
 
+/* Container */
 .container {
     flex: 1;
     max-width: 1000px;
@@ -37,15 +38,15 @@ header p { margin: 8px 0 0 0; font-size: 1rem; }
 
 .stat-card {
     flex: 1 1 220px;
-    background-color: white;
+    background-color: #2a2a2a;
     border-radius: 14px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 16px rgba(255,152,0,0.2);
     padding: 25px 20px;
     text-align: center;
 }
 
-.stat-card h2 { color: #4481eb; font-size: 1.4rem; margin-bottom: 10px; }
-.stat-card p { font-size: 1.1rem; color: #555; }
+.stat-card h2 { color: #FFA726; font-size: 1.4rem; margin-bottom: 10px; }
+.stat-card p { font-size: 1.1rem; color: #fff; }
 
 /* Action cards for dashboard */
 .actions {
@@ -57,9 +58,9 @@ header p { margin: 8px 0 0 0; font-size: 1rem; }
 
 .action-card {
     flex: 1 1 250px;
-    background-color: white;
+    background-color: #2a2a2a;
     border-radius: 14px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 16px rgba(255,152,0,0.2);
     padding: 30px 20px;
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
@@ -67,16 +68,16 @@ header p { margin: 8px 0 0 0; font-size: 1rem; }
 
 .action-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    box-shadow: 0 12px 24px rgba(255,152,0,0.3);
 }
 
-.action-card h3 { color: #4481eb; margin-bottom: 12px; font-size: 1.3rem; }
-.action-card p { margin-bottom: 18px; color: #555; }
+.action-card h3 { color: #FFA726; margin-bottom: 12px; font-size: 1.3rem; }
+.action-card p { margin-bottom: 18px; color: #fff; }
 .action-card a {
     display: inline-block;
     padding: 12px 25px;
-    background: linear-gradient(90deg, #4481eb, #6aa0f8);
-    color: white;
+    background: #FFA726;
+    color: #1c1c1c;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 500;
@@ -84,14 +85,14 @@ header p { margin: 8px 0 0 0; font-size: 1rem; }
 }
 
 .action-card a:hover {
-    background: linear-gradient(90deg, #1c6ed4, #4481eb);
+    background: rgba(255,152,0,0.4);
 }
 
 /* Alumni Cards */
 .alumni-card {
-    background-color: white;
+    background-color: #2a2a2a;
     border-radius: 14px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 16px rgba(255,152,0,0.2);
     padding: 20px;
     margin-bottom: 20px;
     display: flex;
@@ -99,8 +100,8 @@ header p { margin: 8px 0 0 0; font-size: 1rem; }
     gap: 5px;
 }
 
-.alumni-card h3 { color: #4481eb; margin: 0 0 10px 0; }
-.alumni-card p { margin: 4px 0; color: #555; }
+.alumni-card h3 { color: #FFA726; margin: 0 0 10px 0; }
+.alumni-card p { margin: 4px 0; color: #fff; }
 
 .toggle label {
     display: inline-block;
@@ -115,9 +116,9 @@ header p { margin: 8px 0 0 0; font-size: 1rem; }
 
 /* Opportunities cards */
 .opportunity-card {
-    background-color: white;
+    background-color: #2a2a2a;
     border-radius: 14px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 16px rgba(255,152,0,0.2);
     padding: 20px;
     margin-bottom: 20px;
     transition: transform 0.3s, box-shadow 0.3s;
@@ -125,17 +126,17 @@ header p { margin: 8px 0 0 0; font-size: 1rem; }
 
 .opportunity-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    box-shadow: 0 12px 24px rgba(255,152,0,0.3);
 }
 
-.opportunity-card h3 { color: #4481eb; margin-bottom: 10px; }
-.opportunity-card p { margin: 4px 0; color: #555; }
+.opportunity-card h3 { color: #FFA726; margin-bottom: 10px; }
+.opportunity-card p { margin: 4px 0; color: #fff; }
 
 /* Announcement form */
 .announcement-form {
-    background-color: white;
+    background-color: #2a2a2a;
     border-radius: 14px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 16px rgba(255,152,0,0.2);
     padding: 25px 20px;
     display: flex;
     flex-direction: column;
@@ -146,30 +147,33 @@ header p { margin: 8px 0 0 0; font-size: 1rem; }
     padding: 12px;
     margin: 10px 0;
     border-radius: 6px;
-    border: 1px solid #ccc;
+    border: 1px solid #bbb;
     font-size: 1rem;
     box-sizing: border-box;
+    background-color: #1c1c1c;
+    color: #fff;
 }
 
 .announcement-form button {
-    background: linear-gradient(90deg, #4481eb, #6aa0f8);
-    color: white;
+    background: #FFA726;
+    color: #1c1c1c;
     border: none;
     cursor: pointer;
     transition: 0.3s;
 }
 
 .announcement-form button:hover {
-    background: linear-gradient(90deg, #1c6ed4, #4481eb);
+    background: rgba(255,152,0,0.4);
 }
 
 /* Footer */
 footer {
     text-align: center;
     padding: 25px;
-    background: linear-gradient(90deg, #4481eb, #6aa0f8);
-    color: white;
+    background: #2a2a2a;
+    color: #FFA726;
     margin-top: 30px;
+    box-shadow: 0 -4px 6px rgba(255,152,0,0.2);
 }
 
 /* Responsive */
@@ -178,4 +182,40 @@ footer {
         flex: 1 1 100%;
     }
 }
+/* Alumni Cards */
+.alumni-card {
+    background-color: #2a2a2a;
+    border-radius: 14px;
+    box-shadow: 0 8px 16px rgba(255,152,0,0.2);
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #fff; /* default text */
+}
 
+.alumni-card h3 { color: #FFA726; margin: 0 0 10px 0; font-size: 1.2rem; }
+.alumni-card p { margin: 4px 0; color: #fff; font-size: 1rem; }
+
+/* Mentorship Status Badges */
+.available, .not-available {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(255,152,0,0.2);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Explicit colors for available / not available */
+.available {
+    background-color: #FFA726;  /* yellow */
+    color: #1c1c1c !important;  /* dark text */
+}
+
+.not-available {
+    background-color: #FF7043;  /* orange */
+    color: #1c1c1c !important;  /* dark text */
+}
