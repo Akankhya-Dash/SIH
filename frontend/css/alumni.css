@@ -2,7 +2,7 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  background: #f0f4f8;
+  background: black;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -10,20 +10,24 @@ body {
 
 /* Header */
 header {
-  background: linear-gradient(90deg, #4481eb, #6aa0f8);
-  color: white;
+  background: #2a2a2a; /* same as card */
+  color: #FFA726;      /* font color */
   padding: 20px;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(255,152,0,0.2);
+}
+
+header h1, header p {
+  color: #FFA726; /* ensure all header text is correct */
+  margin: 0;
 }
 
 header h1 {
-  margin: 0;
   font-size: 2rem;
 }
 
 header p {
-  margin: 8px 0 0 0;
+  margin-top: 8px;
   font-size: 1rem;
 }
 
@@ -44,27 +48,28 @@ header p {
 
 /* Card */
 .card, .form-card {
-  background-color: white;
+  background-color: #2a2a2a;
   border-radius: 14px;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+  box-shadow: 0 6px 14px rgba(255,152,0,0.2);
   padding: 20px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover, .form-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 20px rgba(0,0,0,0.18);
+  box-shadow: 0 12px 20px rgba(255,152,0,0.2);
 }
 
-.card h2, .form-card h2 {
-  color: #4481eb;
+/* Headings inside cards */
+.card h2, .card h3, .form-card h2 {
+  color: #FFA726; /* headings */
   margin-bottom: 12px;
   font-size: 1.3rem;
 }
 
 .card p {
   margin: 6px 0;
-  color: #444;
+  color: #bbb;
   font-size: 0.95rem;
 }
 
@@ -79,8 +84,8 @@ header p {
 .btn {
   display: inline-block;
   padding: 10px 16px;
-  background: linear-gradient(90deg, #4481eb, #6aa0f8);
-  color: white;
+  background: linear-gradient(90deg, #FFA726, #FFA726);
+  color: #1c1c1c;
   border-radius: 8px;
   text-decoration: none;
   font-size: 0.95rem;
@@ -91,7 +96,7 @@ header p {
 }
 
 .btn:hover {
-  background: linear-gradient(90deg, #1c6ed4, #4481eb);
+  background: linear-gradient(90deg, #FFB74D, #FFA726);
 }
 
 /* Accept / Decline buttons */
@@ -118,15 +123,17 @@ input, textarea {
   padding: 12px 14px;
   margin-bottom: 12px;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #bbb;
   font-size: 1rem;
   box-sizing: border-box;
+  background-color: #1c1c1c;
+  color: #fff;
 }
 
 input:focus, textarea:focus {
   outline: none;
-  border-color: #4481eb;
-  box-shadow: 0 0 5px rgba(68,129,235,0.5);
+  border-color: #FFA726;
+  box-shadow: 0 0 5px rgba(255,152,0,0.2);
 }
 
 /* Toggle Button */
@@ -153,114 +160,58 @@ input:focus, textarea:focus {
 footer {
   text-align: center;
   padding: 20px;
-  background: linear-gradient(90deg, #4481eb, #6aa0f8);
-  color: white;
+  background: #2a2a2a; /* same as card */
+  color: #FFA726;      /* font */
   margin-top: 30px;
+  box-shadow: 0 -4px 6px rgba(255,152,0,0.2);
 }
 
-/* ===== Alumni Dashboard: top + side-by-side cards ===== */
+/* Alumni Dashboard Cards */
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* center horizontally */
+  align-items: center;
   gap: 30px;
 }
 
-/* Top view profile card */
 .view-profile-card {
   width: 100%;
   max-width: 400px;
 }
 
-/* Row for other cards side by side */
-.dashboard-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
-  width: 100%;
-  justify-items: center;
-}
-
-/* Make all cards equal height */
-.dashboard-row .card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 180px;
-}
-
-/* Bottom-align buttons */
-.dashboard-row .card .btn,
-.dashboard-row .card .toggle-btn {
-  margin-top: auto;
-  align-self: center;
-}
-
-/* Responsive adjustments */
-@media (max-width: 900px) {
-  .dashboard-row {
-    grid-template-columns: 1fr 1fr; /* 2 per row */
-  }
-}
-
-@media (max-width: 600px) {
-  .dashboard-row {
-    grid-template-columns: 1fr; /* 1 per row */
-  }
-}
-/* ===== Alumni Dashboard Layout Fix ===== */
-
-/* Container centers everything */
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* horizontally center */
-  gap: 30px;
-}
-
-/* View profile card on top, fixed width */
-.view-profile-card {
-  width: 100%;
-  max-width: 400px;
-}
-
-/* Row for other cards side by side */
 .dashboard-row {
   display: flex;
-  flex-wrap: wrap;       /* wrap on smaller screens */
-  justify-content: center; /* center horizontally */
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 25px;
   width: 100%;
   max-width: 1100px;
 }
 
-/* Make all cards equal height */
 .dashboard-row .card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-width: 260px;
   min-height: 180px;
-  flex: 1; /* equal width */
+  flex: 1;
 }
 
-/* Bottom align buttons */
 .dashboard-row .card .btn,
 .dashboard-row .card .toggle-btn {
   margin-top: auto;
   align-self: center;
 }
 
-/* Responsive adjustments */
 @media (max-width: 900px) {
   .dashboard-row .card {
-    min-width: 45%; /* two per row */
+    min-width: 45%;
   }
 }
 
 @media (max-width: 600px) {
   .dashboard-row .card {
-    min-width: 100%; /* stacked on small screens */
+    min-width: 100%;
   }
 }
 
