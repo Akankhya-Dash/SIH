@@ -5,6 +5,30 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Mentorship</title>
   <link rel="stylesheet" href="../../css/student.css">
+  <style>
+    /* Resume upload styled same as other input boxes */
+    .resume-box {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: #fff;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+    .resume-box label {
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 4px;
+    }
+    .resume-box input[type="file"] {
+      border: none;
+      padding: 5px 0;
+      background: transparent;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -23,6 +47,13 @@
         <option>Alumni 2</option>
       </select>
       <textarea placeholder="Your message/request" rows="4" required></textarea>
+
+      <!-- Upload Resume Section -->
+      <div class="resume-box">
+        <label for="resume">Upload Resume</label>
+        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+      </div>
+
       <button type="submit" class="btn">Send Request</button>
     </form>
   </main>

@@ -241,3 +241,48 @@ footer {
 .view-profile-card h3 {
     color: #FFA726; /* yellow */
 }
+/* Ensure equal height cards */
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.event-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 15px;
+  background-color: #2a2a2a;           /* dark card background */
+  color: #fff;                          /* white text */
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(255,152,0,0.2); /* light orange shadow */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(255,152,0,0.3);
+}
+
+/* Button style */
+.join-btn {
+  display: inline-block;
+  background-color: #FFA726;           /* orange button */
+  color: #1c1c1c;                      /* dark text */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+  margin-top: auto; /* Pushes button to bottom */
+}
+
+.join-btn:hover {
+  background-color: rgba(255,152,0,0.6);  /* lighter orange hover */
+  transform: translateY(-2px);
+}
