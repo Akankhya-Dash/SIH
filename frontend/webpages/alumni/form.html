@@ -1,196 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Alumni Profile</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Alumni Profile</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Inter, Arial, sans-serif;
+    }
 
-<style>
-/* Dark theme with orange highlights */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Segoe UI", Inter, Arial, sans-serif;
-}
-html, body { height: 100%; }
+    html, body {
+      height: 100%;
+    }
 
-body {
-  background: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  color: #fff;
-}
+    body {
+      background: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 24px;
+      color: #fff;
+    }
 
-.form-box {
-  width: 100%;
-  max-width: 520px;
-  background: #2a2a2a; /* dark card */
-  border-radius: 14px;
-  padding: 34px;
-  box-shadow: 0 12px 28px rgba(255,152,0,0.2); /* light orange shadow */
-}
+    /* 🟠 This is the top heading style */
+    .form-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #FFA726;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
 
-h2 {
-  text-align: center;
-  font-size: 22px;
-  font-weight: 700;
-  color: #FFA726; /* yellow heading */
-  margin-bottom: 22px;
-}
+    .form-box {
+      width: 100%;
+      max-width: 520px;
+      background: #2a2a2a;
+      border-radius: 14px;
+      padding: 34px;
+      box-shadow: 0 12px 28px rgba(255,152,0,0.2);
+    }
 
-form { display: block; width: 100%; }
+    h2 {
+      text-align: center;
+      font-size: 22px;
+      font-weight: 700;
+      color: #FFA726;
+      margin-bottom: 22px;
+    }
 
-.row { display: block; width: 100%; margin-bottom: 16px; }
+    form {
+      width: 100%;
+    }
 
-label {
-  display: block;
-  font-size: 14px;
-  font-weight: 600;
-  color: #fff; /* white labels */
-  margin-bottom: 8px;
-}
+    .row {
+      display: block;
+      width: 100%;
+      margin-bottom: 16px;
+    }
 
-input[type="text"],
-input[type="number"],
-select,
-textarea {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid #555;
-  background: #1c1c1c; /* dark field */
-  font-size: 15px;
-  color: #fff; /* text white */
-  transition: box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
-}
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 8px;
+    }
 
-input::placeholder,
-textarea::placeholder {
-  color: #bbb;
-  font-size: 14px;
-}
+    input[type="text"],
+    input[type="number"],
+    input[type="password"],
+    input[type="file"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid #555;
+      background: #1c1c1c;
+      font-size: 15px;
+      color: #fff;
+      transition: box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
 
-input:focus,
-select:focus,
-textarea:focus {
-  outline: none;
-  border-color: #FFA726; /* orange highlight */
-  background: #2a2a2a;
-  box-shadow: 0 0 8px rgba(255,152,0,0.2);
-}
+    input::placeholder,
+    textarea::placeholder {
+      color: #bbb;
+      font-size: 14px;
+    }
 
-textarea {
-  min-height: 110px;
-  resize: vertical;
-}
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #FFA726;
+      background: #2a2a2a;
+      box-shadow: 0 0 8px rgba(255,152,0,0.2);
+    }
 
-.actions {
-  margin-top: 6px;
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
 
-button[type="submit"] {
-  flex: 1;
-  padding: 13px 16px;
-  border-radius: 10px;
-  border: 0;
-  cursor: pointer;
-  font-weight: 700;
-  font-size: 15px;
-  color: #1c1c1c; /* dark text on orange */
-  background: #FFA726;
-  transition: transform 0.14s ease, filter 0.14s ease;
-}
+    .actions {
+      margin-top: 6px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
 
-button[type="submit"]:hover {
-  background: rgba(255,152,0,0.4); /* lighter orange hover */
-  transform: translateY(-2px);
-}
+    button[type="submit"] {
+      flex: 1;
+      padding: 13px 16px;
+      border-radius: 10px;
+      border: 0;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 15px;
+      color: #1c1c1c;
+      background: #FFA726;
+      transition: transform 0.14s ease, filter 0.14s ease;
+    }
 
-/* Two-column row for Graduation Year + Role */
-.two {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
+    button[type="submit"]:hover {
+      background: rgba(255,152,0,0.4);
+      transform: translateY(-2px);
+    }
 
-@media (max-width: 520px) {
-  .form-box { padding: 22px; }
-  .two { grid-template-columns: 1fr; }
-}
-</style>
+    .two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    @media (max-width: 520px) {
+      .form-box { padding: 22px; }
+      .two { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-<div class="form-box" role="main">
-  <h2>Alumni Profile</h2>
+  <!-- 🟠 Top heading like in student profile -->
+  <h2 class="form-title">Alumni Profile</h2>
 
-  <form id="alumniForm" autocomplete="off">
-    <div class="row">
-      <label for="name">Full name</label>
-      <input id="name" name="name" type="text" placeholder="e.g. Rohit Sharma" required>
-    </div>
-
-    <div class="row two">
-      <div>
-        <label for="gradYear">Graduation year</label>
-        <input id="gradYear" name="gradYear" type="number" placeholder="e.g. 2018" min="1900" max="2100" required>
+  <div class="form-box" role="main">
+    <form id="alumniForm" autocomplete="off">
+      <div class="row">
+        <label for="name">Full Name</label>
+        <input id="name" name="name" type="text" placeholder="e.g. Rohit Sharma" required>
       </div>
-      <div>
-        <label for="role">Current role</label>
-        <input id="role" name="role" type="text" placeholder="e.g. Senior Product Manager">
+
+      <div class="row two">
+        <div>
+          <label for="gradYear">Graduation Year</label>
+          <input id="gradYear" name="gradYear" type="number" placeholder="e.g. 2018" min="1900" max="2100" required>
+        </div>
+        <div>
+          <label for="role">Current Role</label>
+          <input id="role" name="role" type="text" placeholder="e.g. Senior Product Manager">
+        </div>
       </div>
-    </div>
 
-    <div class="row">
-      <label for="company">Current company</label>
-      <input id="company" name="company" type="text" placeholder="e.g. Acme Corp">
-    </div>
+      <div class="row">
+        <label for="company">Current Company</label>
+        <input id="company" name="company" type="text" placeholder="e.g. Google, Infosys">
+      </div>
 
-    <div class="row">
-      <label for="industry">Industry</label>
-      <select id="industry" name="industry" required>
-        <option value="">Select industry</option>
-        <option>Information Technology</option>
-        <option>Finance</option>
-        <option>Education</option>
-        <option>Healthcare</option>
-        <option>Consulting</option>
-        <option>Product</option>
-      </select>
-    </div>
+      <div class="row">
+        <label for="achievements">Achievements</label>
+        <textarea id="achievements" name="achievements" placeholder="Awards, contributions, mentorship, etc."></textarea>
+      </div>
 
-    <div class="row">
-      <label for="achievements">Achievements</label>
-      <textarea id="achievements" name="achievements" placeholder="Awards, mentorship, open-source contributions, short summary..."></textarea>
-    </div>
+      <div class="row">
+        <label for="regNo">Registration Number</label>
+        <input id="regNo" name="regNo" type="text" placeholder="Enter your registration number" required>
+      </div>
 
-    <div class="actions">
-      <button type="submit">Save Alumni</button>
-    </div>
-  </form>
-</div>
+      <div class="row">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" placeholder="Enter your password" required>
+      </div>
 
-<script>
-// Handle alumni form submission
-const alumniForm = document.getElementById("alumniForm");
+      <div class="row">
+        <label for="offerLetter">Upload First Placement Offer Letter</label>
+        <input id="offerLetter" name="offerLetter" type="file" accept=".pdf,.jpg,.jpeg,.png" required>
+      </div>
 
-if (alumniForm) {
-  alumniForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+      <div class="actions">
+        <button type="submit">Save Alumni</button>
+      </div>
+    </form>
+  </div>
 
-    const data = Object.fromEntries(new FormData(alumniForm).entries());
-    console.log("Alumni Data:", data);
+  <script>
+    const alumniForm = document.getElementById("alumniForm");
 
-    alert("Alumni details saved successfully!");
-    window.location.href = "alumniDashboard.html";
-  });
-}
-</script>
+    alumniForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(alumniForm);
+      const data = Object.fromEntries(formData.entries());
+
+      console.log("Alumni Data:", data);
+
+      alert("Alumni details saved successfully!");
+      window.location.href = "alumniDashboard.html";
+    });
+  </script>
+
 </body>
 </html>
