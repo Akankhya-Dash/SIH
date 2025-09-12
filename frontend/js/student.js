@@ -1,3 +1,4 @@
+const API_URL = "http://localhost:8080";
 // student.js - single JS for student pages
 document.addEventListener('DOMContentLoaded', () => {
   // sample dataset - replace with API calls later

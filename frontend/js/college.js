@@ -1,3 +1,4 @@
+const API_URL = "http://localhost:8080";
 // Manage Alumni
 const alumni = [
     {name: "John Doe", batch: 2018, skills: "Java, Python", available: true},

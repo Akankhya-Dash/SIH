@@ -1,3 +1,4 @@
+const API_URL = "http://localhost:8080";
 /* alumni.js — page-aware functions for alumni pages
    - mentorship toggle (persisted in localStorage)
    - optional local demo rendering for jobs and requests (if those pages are opened)

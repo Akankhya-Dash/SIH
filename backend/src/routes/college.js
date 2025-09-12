@@ -1,6 +1,6 @@
 import express from "express";
 import College from "../models/College.js";
-import CollegeAdmin from "./models/CollegeAdmin.js";
+import CollegeAdmin from "../models/CollegeAdmin.js";
 import AlumniProfile from "../models/AlumniProfile.js";
 import { authRequired } from "../middleware/auth.js";
 import requireRole from "../middleware/requireRole.js";

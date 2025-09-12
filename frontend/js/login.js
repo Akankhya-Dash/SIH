@@ -1,3 +1,4 @@
+const API_URL = "http://localhost:8080";
 const sign_in_btn = document.querySelector("#sign-in-btn");
 const sign_up_btn = document.querySelector("#sign-up-btn");
 const container = document.querySelector(".container");
@@ -105,6 +106,27 @@ signUpForm.addEventListener("submit", (e) => {
   }
 
   console.log(`Account created successfully as ${role}!`);
+
+// --- Backend integration ---
+try {
+  fetch(`${API_URL}/signup`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      username,
+      email,
+      password,
+      role
+    })
+  })
+  .then(res => res.json())
+  .then(data => console.log("Backend response:", data))
+  .catch(err => console.error("Error connecting to backend:", err));
+} catch (err) {
+  console.error("Unexpected error:", err);
+}
+
+
 
   // ✅ role-based redirect for sign up
   const pages = {

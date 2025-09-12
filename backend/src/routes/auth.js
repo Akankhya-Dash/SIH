@@ -4,7 +4,7 @@ import User from "../models/User.js";
 import StudentProfile from "../models/StudentProfile.js";
 import AlumniProfile from "../models/AlumniProfile.js";
 import College from "../models/College.js";
-import CollegeAdmin from "./models/CollegeAdmin.js";
+import CollegeAdmin from "../models/CollegeAdmin.js";
 import {
   signAccess,
   signRefresh,
