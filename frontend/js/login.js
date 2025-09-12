@@ -12,24 +12,75 @@ sign_in_btn.addEventListener("click", () => {
   container.classList.remove("sign-up-mode");
 });
 
+// ------- SIGN IN --------
 signInForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const username = document.querySelector("#signin-username").value;
   const password = document.querySelector("#signin-password").value;
+  const role = document.querySelector("#role-select-signin") 
+    ? document.querySelector("#role-select-signin").value 
+    : ""; 
 
   if (!username || !password) {
     console.log("Please fill in all fields");
     return;
   }
 
-  if (username === "admin" && password === "password") {
-    console.log("Login successful! Welcome back.");
+  // ✅ role-based redirect for sign in (mock, no backend yet)
+  const pages = {
+    admin: "college/collegeDashboard.html",
+    alumni: "alumni/alumniDashboard.html",
+    student: "student/studentDashboard.html"
+  };
+
+  if (pages[role]) {
+    console.log(`Login successful as ${role}! Redirecting...`);
+    window.location.href = pages[role];
+  } else if (username === "admin" && password === "password") {
+    // fallback test case
+    console.log("Login successful! Redirecting to College Dashboard...");
+    window.location.href = "college/collegeDashboard.html";
   } else {
     console.log("Invalid username or password");
   }
 });
 
+// ------- SIGN IN --------
+signInForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const username = document.querySelector("#signin-username").value;
+  const password = document.querySelector("#signin-password").value;
+  const role = document.querySelector("#role-select-signin") 
+    ? document.querySelector("#role-select-signin").value 
+    : ""; 
+
+  if (!username || !password) {
+    console.log("Please fill in all fields");
+    return;
+  }
+
+  // ✅ role-based redirect for sign in (mock, no backend yet)
+  const pages = {
+    admin: "college/collegeDashboard.html",
+    alumni: "alumni/alumniDashboard.html",
+    student: "student/studentDashboard.html"
+  };
+
+  if (pages[role]) {
+    console.log(`Login successful as ${role}! Redirecting...`);
+    window.location.href = pages[role];
+  } else if (username === "admin" && password === "password") {
+    // fallback test case
+    console.log("Login successful! Redirecting to College Dashboard...");
+    window.location.href = "college/collegeDashboard.html";
+  } else {
+    console.log("Invalid username or password");
+  }
+});
+
+// ------- SIGN UP --------
 signUpForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -53,15 +104,20 @@ signUpForm.addEventListener("submit", (e) => {
     return;
   }
 
-  console.log( `Account created successfully as ${role.charAt(0).toUpperCase() + role.slice(1)}!`);
+  console.log(`Account created successfully as ${role}!`);
+
+  // ✅ role-based redirect for sign up
+  const pages = {
+    admin: "college/collegeDashboard.html",
+    alumni: "alumni/form.html",
+    student: "student/form.html"
+  };
+
+  console.log("Redirecting to:", pages[role]);
+
+  if (pages[role]) {
+    window.location.href = pages[role];
+  }
+
   signUpForm.reset();
-});
-
-document.querySelector("#role-select").addEventListener("change", (e) => {
-  const icon = e.target.closest(".input-field").querySelector("i:first-child");
-
-  if (e.target.value === "admin") icon.className = "fas fa-shield-alt";
-  else if (e.target.value === "alumni") icon.className = "fas fa-graduation-cap";
-  else if (e.target.value === "student") icon.className = "fas fa-users";
-  else icon.className = "fas fa-user-check";
 });
