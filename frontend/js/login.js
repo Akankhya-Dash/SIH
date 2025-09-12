@@ -46,6 +46,40 @@ signInForm.addEventListener("submit", (e) => {
   }
 });
 
+// ------- SIGN IN --------
+signInForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const username = document.querySelector("#signin-username").value;
+  const password = document.querySelector("#signin-password").value;
+  const role = document.querySelector("#role-select-signin") 
+    ? document.querySelector("#role-select-signin").value 
+    : ""; 
+
+  if (!username || !password) {
+    console.log("Please fill in all fields");
+    return;
+  }
+
+  // ✅ role-based redirect for sign in (mock, no backend yet)
+  const pages = {
+    admin: "college/collegeDashboard.html",
+    alumni: "alumni/alumniDashboard.html",
+    student: "student/studentDashboard.html"
+  };
+
+  if (pages[role]) {
+    console.log(`Login successful as ${role}! Redirecting...`);
+    window.location.href = pages[role];
+  } else if (username === "admin" && password === "password") {
+    // fallback test case
+    console.log("Login successful! Redirecting to College Dashboard...");
+    window.location.href = "college/collegeDashboard.html";
+  } else {
+    console.log("Invalid username or password");
+  }
+});
+
 // ------- SIGN UP --------
 signUpForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -75,8 +109,8 @@ signUpForm.addEventListener("submit", (e) => {
   // ✅ role-based redirect for sign up
   const pages = {
     admin: "college/collegeDashboard.html",
-    alumni: "alumni/alumniDashboard.html",
-    student: "student/studentDashboard.html"
+    alumni: "alumni/form.html",
+    student: "student/form.html"
   };
 
   console.log("Redirecting to:", pages[role]);
@@ -86,14 +120,4 @@ signUpForm.addEventListener("submit", (e) => {
   }
 
   signUpForm.reset();
-});
-
-// ------- ROLE ICON CHANGE --------
-document.querySelector("#role-select").addEventListener("change", (e) => {
-  const icon = e.target.closest(".input-field").querySelector("i:first-child");
-
-  if (e.target.value === "admin") icon.className = "fas fa-shield-alt";
-  else if (e.target.value === "alumni") icon.className = "fas fa-graduation-cap";
-  else if (e.target.value === "student") icon.className = "fas fa-users";
-  else icon.className = "fas fa-user-check";
 });
