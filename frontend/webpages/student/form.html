@@ -56,7 +56,7 @@
       color: #fff;
     }
 
-    input, textarea {
+    input, textarea, select {
       width: 100%;
       padding: 12px 14px;
       margin-bottom: 18px;
@@ -68,7 +68,7 @@
       transition: all 0.2s ease;
     }
 
-    input:focus, textarea:focus {
+    input:focus, textarea:focus, select:focus {
       border-color: #FFA726;
       outline: none;
       box-shadow: 0 0 8px rgba(255,152,0,0.2);
@@ -79,8 +79,8 @@
       color: #bbb;
     }
 
-    button[type="submit"] {
-      width: 100%;
+    button[type="submit"], button[type="reset"] {
+      width: 48%;
       padding: 14px;
       background: #FFA726;
       color: #1c1c1c;
@@ -90,11 +90,29 @@
       font-weight: 600;
       cursor: pointer;
       transition: all 0.2s ease;
+      margin-right: 4%;
     }
 
-    button[type="submit"]:hover {
+    button[type="submit"]:hover, button[type="reset"]:hover {
       background: rgba(255,152,0,0.4);
       transform: translateY(-2px);
+    }
+
+    .password-wrapper {
+      position: relative;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      color: #FFA726;
+      cursor: pointer;
+      font-size: 14px;
+      padding: 0;
     }
   </style>
 </head>
@@ -102,17 +120,35 @@
   <div class="container">
     <div class="form-box">
       <h2>Student Profile</h2>
-      <form id="studentForm" class="form">
+      <form id="studentForm" class="form" novalidate>
         <label>Full Name</label>
         <input type="text" name="name" placeholder="Enter your name" required>
 
         <label>Batch (Year)</label>
-        <input type="text" name="batch" placeholder="e.g. 2024">
+        <select name="batch" required>
+          <option value="" disabled selected>Select your batch year</option>
+          <!-- Years 2022 to 2029 -->
+          <script>
+            for(let y=2022; y<=2029; y++){
+              document.write(<option value="${y}">${y}</option>);
+            }
+          </script>
+        </select>
 
         <label>Interests</label>
-        <input type="text" name="interests" placeholder="e.g. Web Dev, AI">
+        <select name="interests" required>
+          <option value="" disabled selected>Select your interest</option>
+          <option value="Web Development">Web Development</option>
+          <option value="Artificial Intelligence">Artificial Intelligence</option>
+          <option value="Data Science">Data Science</option>
+          <option value="Cybersecurity">Cybersecurity</option>
+          <option value="Mobile Apps">Mobile Apps</option>
+          <option value="Cloud Computing">Cloud Computing</option>
+          <option value="Game Development">Game Development</option>
+          <option value="Machine Learning">Machine Learning</option>
+        </select>
 
-        <label>Skills</label>
+        <label>Skills <small>(comma separated)</small></label>
         <input type="text" name="skills" placeholder="e.g. Java, Python">
 
         <!-- Registration Number -->
@@ -121,23 +157,65 @@
 
         <!-- Password -->
         <label>Password</label>
-        <input type="password" name="password" placeholder="Enter a password" required>
+        <div class="password-wrapper">
+          <input type="password" name="password" placeholder="Enter a password" required id="passwordInput">
+          <button type="button" class="toggle-password" onclick="togglePassword()">Show</button>
+        </div>
 
         <!-- Upload File -->
         <label>ID Card / Final Admission Receipt</label>
-        <input type="file" name="idCard" accept=".jpg,.jpeg,.png,.pdf" required>
+        <input type="file" name="idCard" accept=".jpg,.jpeg,.png,.pdf" required id="fileInput">
 
-        <button type="submit">Save Student</button>
+        <div style="display: flex; justify-content: space-between;">
+          <button type="submit">Save Student</button>
+          <button type="reset">Reset</button>
+        </div>
       </form>
     </div>
   </div>
 
   <script>
+    // Toggle password visibility
+    function togglePassword() {
+      const passInput = document.getElementById("passwordInput");
+      const btn = document.querySelector(".toggle-password");
+      if (passInput.type === "password") {
+        passInput.type = "text";
+        btn.textContent = "Hide";
+      } else {
+        passInput.type = "password";
+        btn.textContent = "Show";
+      }
+    }
+
+    // File size validation (max 2MB)
+    const fileInput = document.getElementById("fileInput");
+    fileInput.addEventListener("change", () => {
+      const file = fileInput.files[0];
+      if (file && file.size > 2 * 1024 * 1024) { // 2MB
+        alert("File size should be less than 2MB.");
+        fileInput.value = ""; // Clear input
+      }
+    });
+
     const form = document.getElementById("studentForm");
     form.addEventListener("submit", (e) => {
       e.preventDefault();
+
+      // Validate interests selection
+      const interestsSelect = form.elements["interests"];
+      if (!interestsSelect.value) {
+        alert("Please select an interest.");
+        interestsSelect.focus();
+        return;
+      }
+
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
+
+      // Interests is now a single value
+      data.interests = interestsSelect.value;
+
       console.log("Form Data:", data);
 
       const file = formData.get("idCard");
@@ -146,7 +224,7 @@
       }
 
       alert("Details saved successfully!");
-      window.location.href = "studentDashboard.html";
+      // window.location.href = "studentDashboard.html"; // Uncomment to enable redirect
     });
   </script>
 </body>
