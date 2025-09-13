@@ -67,6 +67,23 @@ if(container) {
         container.appendChild(card);
     });
 }
+// Dummy report data
+const naacReportData = [
+  { metric: "Registered Alumni", value: 200 },
+  { metric: "Alumni Providing Mentorship", value: 120 },
+  { metric: "Active Student Requests", value: 50 },
+  { metric: "Events Organized", value: 30 }
+];
 
+const exportBtn = document.getElementById("exportNAAC");
+if(exportBtn){
+    exportBtn.addEventListener("click", () => {
+        // Export as Excel
+        const wb = XLSX.utils.book_new();
+        const ws = XLSX.utils.json_to_sheet(naacReportData);
+        XLSX.utils.book_append_sheet(wb, ws, "NAAC Report");
+        XLSX.writeFile(wb, "NAAC_Report.xlsx");
 
-
+        alert("NAAC report exported as Excel!");
+    });
+}
