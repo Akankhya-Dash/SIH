@@ -26,7 +26,6 @@
       color: #fff;
     }
 
-    /* 🟠 This is the top heading style */
     .form-title {
       font-size: 24px;
       font-weight: bold;
@@ -146,7 +145,6 @@
 </head>
 <body>
 
-  <!-- 🟠 Top heading like in student profile -->
   <h2 class="form-title">Alumni Profile</h2>
 
   <div class="form-box" role="main">
@@ -159,7 +157,14 @@
       <div class="row two">
         <div>
           <label for="gradYear">Graduation Year</label>
-          <input id="gradYear" name="gradYear" type="number" placeholder="e.g. 2018" min="1900" max="2100" required>
+          <select id="gradYear" name="gradYear" required>
+            <option value="" disabled selected>Select your graduation year</option>
+            <script>
+              for (let year = 2010; year <= 2021; year++) {
+                document.write(<option value="${year}">${year}</option>);
+              }
+            </script>
+          </select>
         </div>
         <div>
           <label for="role">Current Role</label>
