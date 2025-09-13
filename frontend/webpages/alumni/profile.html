@@ -1,139 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Profile - Alumni | GradConnect</title>
   <style>
-   body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #1c1c1c; /* dark background */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #1c1c1c;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-.profile-card {
-  background: #2a2a2a; /* card background */
-  border-radius: 20px;
-  padding: 30px;
-  width: 460px;
-  box-shadow: 0 8px 20px rgba(255,152,0,0.2); /* soft orange */
-  text-align: center;
-  animation: fadeIn 0.6s ease-in-out;
-  transition: 0.3s;
-}
+    .profile-card {
+      background: #2a2a2a;
+      border-radius: 20px;
+      padding: 30px;
+      width: 500px;
+      box-shadow: 0 8px 20px rgba(255,152,0,0.2);
+      text-align: center;
+      animation: fadeIn 0.6s ease-in-out;
+      transition: 0.3s;
+    }
 
-.profile-card:hover {
-  box-shadow: 0 12px 30px rgba(255,152,0,0.2);
-  transform: translateY(-5px);
-}
+    .profile-card:hover {
+      box-shadow: 0 12px 30px rgba(255,152,0,0.2);
+      transform: translateY(-5px);
+    }
 
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
-}
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
 
-h2 {
-  margin-bottom: 15px;
-  color: #FFA726; /* headings yellow */
-  font-size: 24px;
-  font-weight: bold;
-}
+    h2 {
+      margin-bottom: 15px;
+      color: #FFA726;
+      font-size: 24px;
+      font-weight: bold;
+    }
 
-.detail {
-  text-align: left;
-  margin: 10px 0;
-  font-size: 15px;
-  color: #bbb; /* subtle gray */
-}
+    .detail {
+      text-align: left;
+      margin: 10px 0;
+      font-size: 15px;
+      color: #bbb;
+    }
 
-.edit-btn {
-  margin-top: 15px;
-  background: #FFA726; /* yellow button */
-  border: none;
-  color: #1c1c1c; /* text dark for contrast */
-  padding: 10px 20px;
-  font-size: 14px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-}
+    .edit-btn {
+      margin-top: 15px;
+      background: #FFA726;
+      border: none;
+      color: #1c1c1c;
+      padding: 10px 20px;
+      font-size: 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-.edit-btn:hover {
-  background: #FFB74D; /* lighter yellow on hover */
-  transform: scale(1.05);
-}
+    .edit-btn:hover {
+      background: #FFB74D;
+      transform: scale(1.05);
+    }
 
-.edit-form {
-  display: none;
-  margin-top: 20px;
-  text-align: left;
-}
+    .edit-form {
+      display: none;
+      margin-top: 20px;
+      text-align: left;
+    }
 
-.edit-form input, .edit-form textarea {
-  width: 100%;
-  padding: 8px;
-  margin: 6px 0;
-  border: 1px solid #bbb; /* subtle gray border */
-  border-radius: 6px;
-  font-size: 14px;
-  background: #1c1c1c; /* input background dark */
-  color: #fff; /* input text white */
-}
+    .edit-form input, .edit-form textarea {
+      width: 100%;
+      padding: 8px;
+      margin: 6px 0;
+      border: 1px solid #bbb;
+      border-radius: 6px;
+      font-size: 14px;
+      background: #1c1c1c;
+      color: #fff;
+    }
 
-.save-btn {
-  margin-top: 10px;
-  background: #FFA726; /* yellow button */
-  border: none;
-  color: #1c1c1c; /* dark text */
-  padding: 8px 15px;
-  font-size: 13px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s;
-}
+    .save-btn {
+      margin-top: 10px;
+      background: #FFA726;
+      border: none;
+      color: #1c1c1c;
+      padding: 8px 15px;
+      font-size: 13px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-.save-btn:hover {
-  background: #FFB74D; /* lighter yellow */
-  transform: scale(1.05);
-}
+    .save-btn:hover {
+      background: #FFB74D;
+      transform: scale(1.05);
+    }
+
+    /* --- Consistency Score --- */
+    .consistency-section {
+      text-align: left;
+      margin-top: 20px;
+      color: #fff; /* White text */
+    }
+
+    .consistency-meter {
+      height: 12px;
+      border-radius: 6px;
+      background: #555;
+      margin: 5px 0 15px;
+      overflow: hidden;
+    }
+
+    .consistency-fill {
+      height: 100%;
+      background: #FFA726;
+      width: 0;
+      transition: width 1s ease-in-out;
+    }
+
+    /* --- Timeline --- */
+    .timeline {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #ccc;
+      text-align: left;
+    }
+
+    .timeline-item::before {
+      content: "📌";
+      margin-right: 6px;
+    }
 
   </style>
 </head>
 <body>
   <div class="profile-card">
-    <h2 id="welcome">Welcome Ananya Sharma 👋</h2>
+    <h2 id="welcome">Welcome 👋</h2>
 
     <div id="profileDetails">
-      <p class="detail"><b>Name:</b> <span id="name">Ananya Sharma</span></p>
-      <p class="detail"><b>Graduation Year:</b> <span id="gradYear">2018</span></p>
-      <p class="detail"><b>Current Company:</b> <span id="company">Microsoft</span></p>
-      <p class="detail"><b>Role:</b> <span id="role">Software Engineer</span></p>
-      <p class="detail"><b>Industry:</b> <span id="industry">Cloud Computing</span></p>
-      <p class="detail"><b>Achievements:</b> <span id="achievements">Led Azure project, 3 international publications</span></p>
+      <p class="detail"><b>Name:</b> <span id="name"></span></p>
+      <p class="detail"><b>Graduation Year:</b> <span id="gradYear"></span></p>
+      <p class="detail"><b>Current Company:</b> <span id="company"></span></p>
+      <p class="detail"><b>Role:</b> <span id="role"></span></p>
+      <p class="detail"><b>Industry:</b> <span id="industry"></span></p>
+      <p class="detail"><b>Achievements:</b> <span id="achievements"></span></p>
     </div>
 
+    <!-- Consistency Score Section -->
+    <div class="consistency-section">
+      <p>🎯 <b>Consistency Score:</b> <span id="consistencyValue">0%</span></p>
+      <div class="consistency-meter">
+        <div class="consistency-fill" id="consistencyBar"></div>
+      </div>
+    </div>
+
+    <!-- Timeline Section -->
+    <div class="timeline">
+      <p><b>🗓 Alumni Activity Timeline:</b></p>
+      <p class="timeline-item">Updated profile</p>
+      <p class="timeline-item">3/5 Achievements unlocked</p>
+      <p class="timeline-item">Connected with 5 peers</p>
+    </div>
+
+    <!-- Edit Button and Form -->
     <button class="edit-btn" onclick="toggleForm()">Edit Profile</button>
 
     <div class="edit-form" id="editForm">
-      <input type="text" id="editName" placeholder="Enter name">
-      <input type="text" id="editGradYear" placeholder="Enter graduation year">
-      <input type="text" id="editCompany" placeholder="Enter current company">
-      <input type="text" id="editRole" placeholder="Enter role">
-      <input type="text" id="editIndustry" placeholder="Enter industry">
+      <input type="text" id="editName" placeholder="Enter name" />
+      <input type="text" id="editGradYear" placeholder="Enter graduation year" />
+      <input type="text" id="editCompany" placeholder="Enter current company" />
+      <input type="text" id="editRole" placeholder="Enter role" />
+      <input type="text" id="editIndustry" placeholder="Enter industry" />
       <textarea id="editAchievements" placeholder="Enter achievements"></textarea>
       <button class="save-btn" onclick="saveProfile()">Save</button>
     </div>
   </div>
 
   <script>
+    // Initialize alumni profile if not present
     if (!localStorage.getItem("alumni")) {
       const alumni = {
         name: "Ananya Sharma",
-        email: "ananya.sharma@example.com",
         gradYear: "2018",
         company: "Microsoft",
         role: "Software Engineer",
@@ -145,7 +197,7 @@ h2 {
 
     const alumni = JSON.parse(localStorage.getItem("alumni"));
 
-    document.getElementById("welcome").innerText = Welcome ${alumni.name} 👋;
+    document.getElementById("welcome").innerText = `Welcome ${alumni.name}` ;
     document.getElementById("name").innerText = alumni.name;
     document.getElementById("gradYear").innerText = alumni.gradYear;
     document.getElementById("company").innerText = alumni.company;
@@ -156,6 +208,16 @@ h2 {
     function toggleForm() {
       const form = document.getElementById("editForm");
       form.style.display = form.style.display === "block" ? "none" : "block";
+
+      // Pre-fill edit inputs when form shows
+      if(form.style.display === "block") {
+        document.getElementById("editName").value = alumni.name;
+        document.getElementById("editGradYear").value = alumni.gradYear;
+        document.getElementById("editCompany").value = alumni.company;
+        document.getElementById("editRole").value = alumni.role;
+        document.getElementById("editIndustry").value = alumni.industry;
+        document.getElementById("editAchievements").value = alumni.achievements;
+      }
     }
 
     function saveProfile() {
@@ -169,6 +231,11 @@ h2 {
       localStorage.setItem("alumni", JSON.stringify(alumni));
       location.reload();
     }
+
+    // Consistency score (demo random %)
+    const consistencyScore = Math.floor(Math.random() * 81) + 10; // 10% - 90%
+    document.getElementById("consistencyValue").innerText = consistencyScore + "%";
+    document.getElementById("consistencyBar").style.width = consistencyScore + "%";
   </script>
 </body>
 </html>
